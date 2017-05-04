@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
   .then((foundChatrooms) => {
     res.send(foundChatrooms);
   })
-  .catch(next)
+  .catch(next);
 });
 
 // GET request to get all messages of a chatroom
