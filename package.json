@@ -37,6 +37,7 @@
     "redux-logger": "^2.8.2",
     "redux-thunk": "^2.1.0",
     "sequelize": "^3.27.0",
+    "supertest": "^3.0.0",
     "webpack": "^2.4.1"
   }
 }
