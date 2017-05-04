@@ -49,4 +49,10 @@ router.post('/login', (req, res, next) => {
   .catch(next);
 });
 
+router.delete('/logout', (req, res, next) => {
+  console.log('')
+  req.logOut();
+  res.sendStatus(204);
+});
+
 module.exports = router;
