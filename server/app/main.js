@@ -44,7 +44,7 @@ app.use('/api', routes);
 db.sync()
 .then(() => {
   console.log('Database is Synced!');
-  app.listen(port, (err) => {
+  app.listen(port, () => {
     console.log('HTTP server is listening on port', port);
   });
 });
