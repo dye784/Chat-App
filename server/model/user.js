@@ -32,6 +32,9 @@ const User = db.define('users', {
       return bcrypt.compare(password, this.password_digest);
     },
   },
+  defaultScope: {
+    attributes: { exclude: ['password_digest'] },
+  },
 });
 
 module.exports = User;
