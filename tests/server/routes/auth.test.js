@@ -38,4 +38,21 @@ describe('Auth Routes', () => {
         .expect(401);
     });
   });
+
+  describe('DELETE /logout', () => {
+    describe('when logged in', () => {
+      const agent = request.agent(app);
+
+      beforeEach('log in', () => {
+        return agent
+          .post('/api/auth/login')
+          .send(userData);
+      });
+
+      it('logs you out', () => {
+        return agent.delete('/api/auth/logout')
+          .expect(204);
+      });
+    });
+  });
 });

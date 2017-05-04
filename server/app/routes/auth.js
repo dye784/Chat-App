@@ -49,4 +49,10 @@ router.post('/login', (req, res, next) => {
   .catch(next);
 });
 
+// DELETE request to logout user
+router.delete('/logout', (req, res, next) => {
+  req.logOut();
+  res.sendStatus(204);
+});
+
 module.exports = router;
