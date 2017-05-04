@@ -8,9 +8,9 @@ const Message = require('../../../server/model/message');
 const User = require('../../../server/model/user');
 const Chatroom = require('../../../server/model/chatroom');
 
-describe.only('Chatroom Routes', () => {
+describe('Chatroom Routes', () => {
   before('Clear database', () => db.sync({ force: true }));
-  // afterEach('Clear database', () => db.sync({ force: true }));
+  afterEach('Clear database', () => db.sync({ force: true }));
 
   const message1 = {
     content: 'Hello world!',
@@ -30,7 +30,7 @@ describe.only('Chatroom Routes', () => {
     chatroom_id: 1,
   };
 
-  before('Create a Message', () => {
+  beforeEach('Create a Message', () => {
     return User.create({
       name: 'Example',
       email: 'example@example.com',
