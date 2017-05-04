@@ -22,16 +22,24 @@ router.get('/', (req, res, next) => {
 });
 
 // POST request to login user
+// If user exists, check password, if correct password login
+// If user doesn't exist, create user, login
 router.post('/login', (req, res, next) => {
-  User.findOne({
+  User.findOrCreate({
     where: {
       email: req.body.email,
     },
+    defaults: {
+      password: req.body.password,
+    },
     attributes: { include: ['password_digest'] },
   })
-  .then((foundUser) => {
-    if (!foundUser) {
-      res.sendStatus(401);
+  .spread((foundUser, created) => {
+    if (created) {
+      req.logIn(foundUser, (err) => {
+        if (err) { return next(err); }
+        res.status(302).send(foundUser);
+      });
     } else {
       return foundUser.authenticate(req.body.password)
         .then((isAuthorized) => {
