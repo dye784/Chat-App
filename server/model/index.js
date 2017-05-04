@@ -8,6 +8,6 @@ const Chatroom = require('./chatroom');
 
 // Associations
 User.hasMany(Message);
-Message.belongsTo(Chatroom);
+Chatroom.hasMany(Message);
 
 module.exports = db;
