@@ -53,17 +53,19 @@ describe('Chatroom Routes', () => {
     .then(() => Message.create(message3));
   });
 
-  describe('Routes', () => {
-    it('GET /api/chatrooms', () => {
+  describe('GET /api/chatrooms', () => {
+    it('gets all chatrooms', () => {
       return request(app)
         .get('/api/chatrooms')
         .expect(200)
         .expect(res => expect(res.body.length).to.equal(1));
     });
+  });
 
+  describe('GET /api/chatrooms/:chatroomId/messages', () => {
     // Expect to get only the messages in that hatroom
     // Expect the order to be ascending from when it was created
-    it('GET /api/chatrooms/:chatroomId/messages', () => {
+    it('gets all messages in chatroom ascending order', () => {
       return request(app)
         .get('/api/chatrooms/1/messages')
         .expect(200)
