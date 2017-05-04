@@ -2,10 +2,11 @@
 
 const { expect } = require('chai');
 const User = require('../../../server/model/user');
+const db = require('../../../server/model');
 
 describe('User Model', () => {
-  before('Clear database', () => User.sync({ force: true }));
-  afterEach('Clear database', () => User.sync({ force: true }));
+  before('Clear database', () => db.sync({ force: true }));
+  afterEach('Clear database', () => db.sync({ force: true }));
   const userData = {
     name: 'Example',
     email: 'example@example.com',

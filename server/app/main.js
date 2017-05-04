@@ -40,13 +40,16 @@ app.get('/', (req, res) => {
 // Reroute to /api
 app.use('/api', routes);
 
-// Sync database then start listening
-db.sync()
-.then(() => {
-  console.log('Database is Synced!');
-  app.listen(port, () => {
-    console.log('HTTP server is listening on port', port);
+// Sync database then start listening if we are running the file directly
+// Needed to remove errors during testing
+if (module === require.main) {
+  db.sync({ force: true })
+  .then(() => {
+    console.log('Database is Synced!');
+    app.listen(port, () => {
+      console.log('HTTP server is listening on port', port);
+    });
   });
-});
+}
 
 module.exports = app;

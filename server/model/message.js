@@ -1,10 +1,13 @@
-const { TEXT } = require('sequelize');
+const { STRING } = require('sequelize');
 const db = require('./_db');
 
 const Message = db.define('messages', {
   content: {
-    type: TEXT,
+    type: STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
 });
 

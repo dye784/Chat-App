@@ -4,10 +4,11 @@ const { expect } = require('chai');
 const request = require('supertest');
 const app = require('../../../server/app/main');
 const User = require('../../../server/model/user');
+const db = require('../../../server/model');
 
 describe('Auth Routes', () => {
-  before('Clear database', () => User.sync({ force: true }));
-  afterEach('Clear database', () => User.sync({ force: true }));
+  before('Clear database', () => db.sync({ force: true }));
+  afterEach('Clear database', () => db.sync({ force: true }));
 
   const userData = {
     name: 'Example',
