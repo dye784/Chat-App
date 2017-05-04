@@ -37,6 +37,19 @@ describe('Auth Routes', () => {
         .send(incorrectUserData)
         .expect(401);
     });
+
+    it('creates a new user if user doesn\'t exist', () => {
+      const newUserData = {
+        name: 'New Example',
+        email: 'new@new.com',
+        password: 'NewNewNew',
+      };
+
+      return request(app)
+        .post('/api/auth/login')
+        .send(newUserData)
+        .expect(302);
+    });
   });
 
   describe('DELETE /logout', () => {
