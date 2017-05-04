@@ -17,6 +17,7 @@ const User = db.define('users', {
     validate: {
       isEmail: true,
       notEmpty: true,
+      unique: true,
     },
   },
   password_digest: STRING,
