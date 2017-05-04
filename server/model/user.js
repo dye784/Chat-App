@@ -26,6 +26,11 @@ const User = db.define('users', {
     beforeCreate: setEmailAndPassword,
     beforeUpdate: setEmailAndPassword,
   },
+  instanceMethods: {
+    authenticate(password) {
+      return bcrypt.compare(password, this.password_digest);
+    },
+  },
 });
 
 module.exports = User;
