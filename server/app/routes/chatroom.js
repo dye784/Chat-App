@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 router.get('/:chatroomId/messages', (req, res, next) => {
   Message.findAll({
     where: {
-      chatroom_id: +req.params.chatroomId,
+      chatroom_id: req.params.chatroomId,
     },
     order: [
       ['created_at', 'ASC'],
@@ -23,6 +23,19 @@ router.get('/:chatroomId/messages', (req, res, next) => {
   })
   .then((foundMessages) => {
     res.send(foundMessages);
+  })
+  .catch(next);
+});
+
+// POST request to add a message
+router.post('/:chatroomId', (req, res, next) => {
+  Message.create({
+    content: req.body.content,
+    user_id: req.body.userId,
+    chatroom_id: req.params.chatroomId,
+  })
+  .then((createdMessage) => {
+    res.send(createdMessage);
   })
   .catch(next);
 });

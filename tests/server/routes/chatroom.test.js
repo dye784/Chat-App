@@ -53,17 +53,19 @@ describe('Chatroom Routes', () => {
     .then(() => Message.create(message3));
   });
 
-  describe('Routes', () => {
-    it('GET /api/chatrooms', () => {
+  describe('GET /api/chatrooms', () => {
+    it('gets all chatrooms', () => {
       return request(app)
         .get('/api/chatrooms')
         .expect(200)
         .expect(res => expect(res.body.length).to.equal(1));
     });
+  });
 
+  describe('GET /api/chatrooms/:chatroomId/messages', () => {
     // Expect to get only the messages in that hatroom
     // Expect the order to be ascending from when it was created
-    it('GET /api/chatrooms/:chatroomId/messages', () => {
+    it('gets all messages in chatroom ascending order', () => {
       return request(app)
         .get('/api/chatrooms/1/messages')
         .expect(200)
@@ -71,6 +73,22 @@ describe('Chatroom Routes', () => {
         .expect(res => expect(res.body[0].content).to.equal(message1.content))
         .expect(res => expect(res.body[1].content).to.equal(message2.content))
         .expect(res => expect(res.body[2].content).to.equal(message3.content));
+    });
+  });
+
+  describe('POST /api/chatrooms/:chatroomId', () => {
+    it('adds a message to the database', () => {
+      const newMessage = {
+        content: 'I am a new message',
+        userId: 2,
+      };
+
+      return request(app)
+        .post('/api/chatrooms/1')
+        .send(newMessage)
+        .expect(200)
+        .expect(res => expect(res.body.content).to.equal(newMessage.content))
+        .expect(res => expect(res.body.chatroom_id).to.equal(1));
     });
   });
 });
