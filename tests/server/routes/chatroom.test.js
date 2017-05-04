@@ -8,9 +8,9 @@ const Message = require('../../../server/model/message');
 const User = require('../../../server/model/user');
 const Chatroom = require('../../../server/model/chatroom');
 
-describe('Chatroom Routes', () => {
+describe.only('Chatroom Routes', () => {
   before('Clear database', () => db.sync({ force: true }));
-  afterEach('Clear database', () => db.sync({ force: true }));
+  // afterEach('Clear database', () => db.sync({ force: true }));
 
   const message1 = {
     content: 'Hello world!',
@@ -30,7 +30,7 @@ describe('Chatroom Routes', () => {
     chatroom_id: 1,
   };
 
-  beforeEach('Create a Message', () => {
+  before('Create a Message', () => {
     return User.create({
       name: 'Example',
       email: 'example@example.com',
@@ -73,6 +73,22 @@ describe('Chatroom Routes', () => {
         .expect(res => expect(res.body[0].content).to.equal(message1.content))
         .expect(res => expect(res.body[1].content).to.equal(message2.content))
         .expect(res => expect(res.body[2].content).to.equal(message3.content));
+    });
+  });
+
+  describe('POST /api/chatrooms/:chatroomId', () => {
+    it('adds a message to the database', () => {
+      const newMessage = {
+        content: 'I am a new message',
+        userId: 2,
+      };
+
+      return request(app)
+        .post('/api/chatrooms/1')
+        .send(newMessage)
+        .expect(200)
+        .expect(res => expect(res.body.content).to.equal(newMessage.content))
+        .expect(res => expect(res.body.chatroom_id).to.equal(1));
     });
   });
 });

@@ -30,11 +30,9 @@ router.get('/:chatroomId/messages', (req, res, next) => {
 // POST request to add a message
 router.post('/:chatroomId', (req, res, next) => {
   Message.create({
-    where: {
-      content: req.body.content,
-      user_id: req.body.userId,
-      chatroom_id: req.params.chatroomId,
-    },
+    content: req.body.content,
+    user_id: req.body.userId,
+    chatroom_id: req.params.chatroomId,
   })
   .then((createdMessage) => {
     res.send(createdMessage);
