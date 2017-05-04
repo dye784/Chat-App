@@ -20,7 +20,11 @@ describe('User Model', () => {
           .then(result => expect(result).to.be.true);
       });
 
-      it('returns false when stored hashed passwords do not match', () => {});
+      it('returns false when stored hashed passwords do not match', () => {
+        return User.create(userData)
+          .then(createdUser => createdUser.authenticate('9000'))
+          .then(result => expect(result).to.be.false);
+      });
     });
   });
 });
