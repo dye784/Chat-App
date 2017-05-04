@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 const User = require('../../model/user');
 
 passport.serializeUser((user, done) => {
@@ -17,33 +16,37 @@ passport.deserializeUser((id, done) => {
   .catch(done);
 });
 
-// Set up Auth Local strategy
-passport.use(new LocalStrategy((email, password, done) => {
-  User.findOne({
-    where: { email },
-  })
-  .then((foundUser) => {
-    if (!foundUser) {
-      return done(null, false, { message: 'Login incorrect' });
-    }
-
-    return foundUser.authenticate(password)
-      .then((isAuthorized) => {
-        if (!isAuthorized) {
-          return done(null, false, { message: 'Login incorrect' });
-        }
-        done(null, foundUser);
-      });
-  })
-  .catch(done);
-}));
-
 // GET request to get self
 router.get('/', (req, res, next) => {
   res.send(req.user);
 });
 
-// POST request for Local Login
-router.post('/login', passport.authenticate('local', { successRedirect: '/' }));
+// POST request to login user
+router.post('/login', (req, res, next) => {
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+    attributes: { include: ['password_digest'] },
+  })
+  .then((foundUser) => {
+    if (!foundUser) {
+      res.sendStatus(401);
+    } else {
+      return foundUser.authenticate(req.body.password)
+        .then((isAuthorized) => {
+          if (!isAuthorized) {
+            res.sendStatus(401);
+          } else {
+            req.logIn(foundUser, (err) => {
+              if (err) { return next(err); }
+              res.status(302).send(foundUser);
+            });
+          }
+        });
+    }
+  })
+  .catch(next);
+});
 
 module.exports = router;
