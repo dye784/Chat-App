@@ -4,7 +4,7 @@
   "description": "NERDS Starter Pack",
   "main": "server/main.js",
   "scripts": {
-    "test": "mocha --watch-extensions js,jsx tests/server/**/*.test.js",
+    "test": "mocha --compilers js:babel-register tests/**/**/*.test.js",
     "start": "nodemon --watch server -e js,html server/app/main.js",
     "build": "webpack --watch",
     "db-init": "pg-init chatdb"
@@ -19,6 +19,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
