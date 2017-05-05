@@ -15,3 +15,8 @@ export const login = (email, password) => (dispatch) => {
   .then(res => res.data)
   .then(user => dispatch(authenticate(user)));
 };
+
+export const logout = () => (dispatch) => {
+  axios.delete('/api/auth/logout')
+  .then(() => dispatch(authenticate(null)));
+};
