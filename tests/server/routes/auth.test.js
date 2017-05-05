@@ -23,7 +23,7 @@ describe('Auth Routes', () => {
       return request(app)
         .post('/api/auth/login')
         .send(userData)
-        .expect(302);
+        .expect(200);
     });
 
     it('fails with an invalid username and password', () => {
@@ -49,7 +49,7 @@ describe('Auth Routes', () => {
       return request(app)
         .post('/api/auth/login')
         .send(newUserData)
-        .expect(302);
+        .expect(200);
     });
   });
 
