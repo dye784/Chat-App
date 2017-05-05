@@ -20,3 +20,9 @@ export const logout = () => (dispatch) => {
   axios.delete('/api/auth/logout')
   .then(() => dispatch(authenticate(null)));
 };
+
+export const fetchLoggedInUser = () => (dispatch) => {
+  axios.get('/api/auth/me')
+  .then(res => res.data)
+  .then(user => dispatch(authenticate(user)));
+};

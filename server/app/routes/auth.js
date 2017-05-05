@@ -17,7 +17,7 @@ passport.deserializeUser((id, done) => {
 });
 
 // GET request to get self
-router.get('/', (req, res, next) => {
+router.get('/me', (req, res, next) => {
   res.send(req.user);
 });
 
