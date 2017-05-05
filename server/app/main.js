@@ -43,7 +43,7 @@ app.use('/api', routes);
 // Sync database then start listening if we are running the file directly
 // Needed to remove errors during testing
 if (module === require.main) {
-  db.sync({ force: true })
+  db.sync()
   .then(() => {
     console.log('Database is Synced!');
     app.listen(port, () => {
