@@ -40,7 +40,7 @@ describe('User Model', () => {
             expect(createdUserJson.id).to.equal(1);
             expect(createdUserJson.created_at).to.be.not.be.undefined;
             expect(createdUserJson.updated_at).to.be.not.be.undefined;
-        });
+          });
       });
     });
   });
