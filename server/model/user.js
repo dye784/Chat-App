@@ -28,8 +28,28 @@ const User = db.define('users', {
     beforeUpdate: setEmailAndPassword,
   },
   instanceMethods: {
+    /**
+     * authenticate - Use bcrpt to check password
+     * @param {string} password
+     * @returns {bool} Returns a promisified boolean
+     */
     authenticate(password) {
       return bcrypt.compare(password, this.password_digest);
+    },
+
+    /**
+     * toJson - Prep data to be sent to client
+     * @returns {object} Returns an object of user data excluding
+     * password and password_digest
+     */
+    toJson() {
+      return {
+        name: this.name,
+        email: this.email,
+        created_at: this.created_at,
+        id: this.id,
+        updated_at: this.updated_at,
+      };
     },
   },
   defaultScope: {

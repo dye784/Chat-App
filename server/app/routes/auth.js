@@ -38,7 +38,7 @@ router.post('/login', (req, res, next) => {
     if (created) {
       req.logIn(foundUser, (err) => {
         if (err) { return next(err); }
-        res.send(foundUser);
+        res.send(foundUser.toJson());
       });
     } else {
       return foundUser.authenticate(req.body.password)
