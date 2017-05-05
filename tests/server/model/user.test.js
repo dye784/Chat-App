@@ -27,5 +27,21 @@ describe('User Model', () => {
           .then(result => expect(result).to.be.false);
       });
     });
+
+    describe('toJson', () => {
+      it('returns an object with the userData excluding password', () => {
+        return User.create(userData)
+          .then(createdUser => {
+            const createdUserJson = createdUser.toJson();
+            expect(createdUserJson.password).to.be.undefined;
+            expect(createdUserJson.password_digest).to.be.undefined;
+            expect(createdUserJson.name).to.equal(userData.name);
+            expect(createdUserJson.email).to.equal(userData.email);
+            expect(createdUserJson.id).to.equal(1);
+            expect(createdUserJson.created_at).to.be.not.be.undefined;
+            expect(createdUserJson.updated_at).to.be.not.be.undefined;
+        });
+      });
+    });
   });
 });
