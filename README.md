@@ -27,7 +27,7 @@ npm run seed
 Start webpack
 
 ```
-npm run build-watch
+npm run build
 ```
 
 To run the tests
@@ -42,6 +42,7 @@ To start the server
 npm start
 ```
 
-Then go to [http://localhost:1337/](http://localhost:1337/)
+Then go to [http://localhost:1337/](http://localhost:1337/) to try the app out!
 
-
+### Instructions
+You can either sign in with a test user - email: `example@example.com` & password: `12345` or just sign in with a valid email (i.e. something@something.something) with a password you can remember (i.e. 12345).

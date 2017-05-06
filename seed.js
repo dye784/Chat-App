@@ -20,17 +20,13 @@ const doTimes = (n, fn) => {
   return results;
 };
 
-const randomFakeChatroom = () => {
-  return Chatroom.build({
-    name: faker.random.word(),
-  });
-};
+const randomFakeChatroom = () => Chatroom.build({ name: faker.random.word() });
 
 const createFakeChatroom = () => {
   const generalChatroom = Chatroom.build({ name: 'general' });
   const arrOfChatroomsToBeSaved = [
     generalChatroom,
-    ...doTimes(numChatrooms, () => randomFakeChatroom())
+    ...doTimes(numChatrooms, () => randomFakeChatroom()),
   ];
   return Promise.map(arrOfChatroomsToBeSaved, (chatroom) => chatroom.save());
 };
@@ -44,7 +40,15 @@ const randomFakeUser = () => {
 };
 
 const createFakeUser = () => {
-  const arrOfUsersToBeSaved = doTimes(numUsers, () => randomFakeUser());
+  const testUser = User.build({
+    name: 'example',
+    password: '12345',
+    email: 'example@example.com',
+  });
+  const arrOfUsersToBeSaved = [
+    testUser,
+    ...doTimes(numUsers, () => randomFakeUser()),
+  ];
   return Promise.map(arrOfUsersToBeSaved, (user) => user.save());
 };
 
