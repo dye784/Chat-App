@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   auth: LoginReducer,
   app: AppReducer,
   messages: ChatReducer,
-  selectedChatroom: SidebarReducer,
+  chatrooms: SidebarReducer,
 });
 
 export default rootReducer;

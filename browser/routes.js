@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { fetchLoggedInUser } from './Login/LoginActionCreator';
+import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import App from './App';
 
-const Routes = ({ fetchLoggedInUser }) => (
+const Routes = ({ fetchInitialData }) => (
   <Router history={browserHistory}>
-    <Route path="/" onEnter={fetchLoggedInUser}>
+    <Route path="/" onEnter={fetchInitialData}>
       <IndexRoute component={App} />
       <Route path="*" component={App} />
     </Route>
@@ -15,6 +16,11 @@ const Routes = ({ fetchLoggedInUser }) => (
 
 const mapStateToProps = null;
 
-const mapDispatchToProps = { fetchLoggedInUser };
+const mapDispatchToProps = (dispatch) => ({
+  fetchInitialData() {
+    dispatch(fetchLoggedInUser());
+    dispatch(fetchAllChatrooms());
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes);
