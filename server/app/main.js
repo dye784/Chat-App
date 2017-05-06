@@ -18,14 +18,8 @@ const http = require('http');
 const server = http.createServer();
 server.on('request', app);
 const io = socketio(server);
-
-io.on('connection', (socket) => {
-  console.log(`A user has connected! SocketId: ${socket.id}`);
-
-  socket.on('disconnect', () => {
-    console.log(`SocketId: ${socket.id} has disconnected!`);
-  });
-});
+const socketEvents = require('./sockets');
+socketEvents(io);
 
 // Logging Middleware
 app.use(morgan('dev'));
