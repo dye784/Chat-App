@@ -18,6 +18,12 @@ Then create the database
 npm run db-init
 ```
 
+Then seed the database
+
+```
+npm run seed
+```
+
 Start webpack
 
 ```

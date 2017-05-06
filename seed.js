@@ -27,7 +27,11 @@ const randomFakeChatroom = () => {
 };
 
 const createFakeChatroom = () => {
-  const arrOfChatroomsToBeSaved = doTimes(numChatrooms, () => randomFakeChatroom());
+  const generalChatroom = Chatroom.build({ name: 'general' });
+  const arrOfChatroomsToBeSaved = [
+    generalChatroom,
+    ...doTimes(numChatrooms, () => randomFakeChatroom())
+  ];
   return Promise.map(arrOfChatroomsToBeSaved, (chatroom) => chatroom.save());
 };
 
@@ -48,7 +52,7 @@ const randomFakeMessage = () => {
   return Message.build({
     content: faker.lorem.sentence(),
     user_id: faker.random.number({ min: 1, max: numUsers }),
-    chatroom_id: faker.random.number({ min: 1, max: numChatrooms }),
+    chatroom_id: faker.random.number({ min: 1, max: numChatrooms + 1 }),
   });
 };
 
@@ -68,7 +72,7 @@ db.sync({ force: true })
   return seed();
 })
 .then(() => {
-  console.log('Seeding successful');
+  console.log('----- Seeding successful! -----');
 }, (err) => {
   console.error('Error while seeding');
   console.error(err.stack);
