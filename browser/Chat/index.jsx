@@ -5,7 +5,7 @@ import { postNewMessageToServer } from './ChatActionCreators';
 export class Chat extends Component {
   onSubmit = (evt) => {
     evt.preventDefault();
-    this.props.postNewMessageToServer(this.props.selectedChatroom, evt.target.message.value)
+    this.props.postNewMessageToServer(this.props.userId, this.props.selectedChatroom, evt.target.message.value)
   }
 
   render() {
@@ -21,9 +21,10 @@ export class Chat extends Component {
   }
 }
 
-const mapStateToProps = ({ messages, chatrooms }) => ({
+const mapStateToProps = ({ auth, messages, chatrooms }, { params }) => ({
   messages,
-  selectedChatroom: chatrooms.selectedChatroom,
+  selectedChatroom: params.chatroomId,
+  userId: auth.id,
 });
 
 const mapDispatchToProps = { postNewMessageToServer };

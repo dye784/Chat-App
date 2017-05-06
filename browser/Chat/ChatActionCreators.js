@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { socket } from '../store';
 
 export const ADD_NEW_MESSAGE = 'ADD_NEW_MESSAGE';
 export const LOAD_CHAT_MESSAGES = 'LOAD_CHAT_MESSAGES';
@@ -20,10 +21,16 @@ export const fetchAllMessagesForChatroom = (chatroomId) => (dispatch) => {
   .catch(err => console.error('Fetching messages for chatroom unsuccessful', err));
 };
 
-export const postNewMessageToServer = (chatroomId, message) => (dispatch) => {
-  axios.post(`/api/chatrooms/${chatroomId}/messages`, { message })
+export const postNewMessageToServer = (userId, chatroomId, message) => (dispatch) => {
+  axios.post(`/api/chatrooms/${chatroomId}/messages`, {
+    content: message,
+    userId,
+    chatroomId,
+  })
   .then(res => res.data)
-  .then(createdMessage => dispatch(addNewMessage(createdMessage)))
-  .then(() => socket.emit('addMessage', { message }))
+  .then((createdMessage) => {
+    dispatch(addNewMessage(createdMessage));
+    socket.emit('newMessage', createdMessage);
+  })
   .catch(err => console.error('Creating message unsuccessful', err));
 };

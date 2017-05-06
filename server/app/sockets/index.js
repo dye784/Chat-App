@@ -12,7 +12,7 @@ const socketEvents = (io) => {
     });
 
     socket.on('newMessage', (message) => {
-      socket.emit('addMessage', message);
+      socket.broadcast.emit('addMessage', message);
     });
   });
 };

@@ -28,7 +28,7 @@ router.get('/:chatroomId/messages', (req, res, next) => {
 });
 
 // POST request to add a message
-router.post('/:chatroomId', (req, res, next) => {
+router.post('/:chatroomId/messages', (req, res, next) => {
   Message.create({
     content: req.body.content,
     user_id: req.body.userId,
