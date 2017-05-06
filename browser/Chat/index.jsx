@@ -12,7 +12,7 @@ export class Chat extends Component {
           <button type="submit"></button>
         </form>
       </div>
-    )
+    );
   }
 }
 
