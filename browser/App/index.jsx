@@ -8,7 +8,7 @@ import Sidebar from '../Sidebar/index.jsx';
 export const App = ({ user, children }) => {
   return (
     <div style={{ backgroundColor: 'blue', height: '200px' }}>
-      <Sidebar style={{backgroundColor: 'green', height: '200px' }}/>
+      <Sidebar style={{ backgroundColor: 'green', height: '200px' }} />
       {user ? <Logout /> : <Login /> }
       { children }
     </div>

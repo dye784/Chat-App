@@ -4,7 +4,7 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import { fetchLoggedInUser } from './Login/LoginActionCreator';
 import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import { fetchAllMessagesForChatroom } from './Chat/ChatActionCreators';
-import App from './App';
+import App from './App/index.jsx';
 import Chat from './Chat/index.jsx';
 
 const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom }) => (
