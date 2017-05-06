@@ -4,12 +4,22 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
+const app = express();
+
 const routes = require('./routes');
 const db = require('../model');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 1337;
-const app = express();
+
+// Socket setup
+const socketio = require('socket.io');
+const http = require('http');
+const server = http.createServer();
+server.on('request', app);
+const io = socketio(server);
+const socketEvents = require('./sockets');
+socketEvents(io);
 
 // Logging Middleware
 app.use(morgan('dev'));
@@ -41,13 +51,14 @@ app.get('/', (req, res) => {
 app.use('/api', routes);
 
 // Sync database then start listening if we are running the file directly
-// Needed to remove errors during testing
+// Needed to remove errors during http testing
 if (module === require.main) {
   db.sync()
   .then(() => {
-    console.log('Database is Synced!');
-    app.listen(port, () => {
-      console.log('HTTP server is listening on port', port);
+    console.log('----- Database is Synced! -----');
+    server.listen(port, () => {
+      console.log('----- HTTP Server Started! -----');
+      console.log(`Server is listening on port ${port}`);
     });
   });
 }

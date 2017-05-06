@@ -7,3 +7,6 @@ const store = createStore(reducer,
   applyMiddleware(createLogger({ collapsed: true }), thunkMiddleware));
 
 export default store;
+
+// Connect socket
+const socket = io();
