@@ -1,26 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectChatroom } from './SidebarActionCreators';
+import { Link } from 'react-router';
 
-export const Sidebar = ({ allChatrooms, selectChatroom }) => {
+export const Sidebar = ({ chatrooms }) => {
   return (
-    <div>
-      {allChatrooms.map((chatroom) => {
+    <div style={{ height: '100px' }}>
+      CHATROOMS
+      {chatrooms.map((chatroom) => {
         return (
-          <button id={chatroom.name} onClick={() => selectChatroom(chatroom.id)}>
+          <Link to={`/${chatroom.id}`} key={chatroom.name}>
             {chatroom.name}
-          </button>
+          </Link>
         );
       })}
     </div>
   );
 };
 
-const mapStateToProps = ({ chatrooms }) => ({
-  allChatrooms: chatrooms.allChatrooms,
-  selectedChatroom: chatrooms.selectedChatroom,
-});
+const mapStateToProps = ({ chatrooms }) => ({ chatrooms });
 
-const mapDispatchToProps = { selectChatroom };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps)(Sidebar);

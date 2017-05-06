@@ -1,12 +1,6 @@
 import axios from 'axios';
 
-export const SELECT_CHATROOM = 'SELECT_CHATROOM';
 export const SET_ALL_CHATROOMS = 'SET_ALL_CHATROOMS';
-
-export const selectChatroom = (chatroomId) => ({
-  type: SELECT_CHATROOM,
-  chatroomId,
-});
 
 export const setAllChatrooms = (allChatrooms) => ({
   type: SET_ALL_CHATROOMS,
