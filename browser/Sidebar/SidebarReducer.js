@@ -1,7 +1,7 @@
 import { SELECT_CHATROOM, SET_ALL_CHATROOMS } from './SidebarActionCreators';
 
 const initialState = {
-  selectedChatroom: 0,
+  selectedChatroom: 1,
   allChatrooms: [],
 };
 
