@@ -3,9 +3,19 @@ import { connect } from 'react-redux';
 import { postNewMessageToServer } from './ChatActionCreators';
 
 export class Chat extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { message: '' }
+  }
+
+  handleChange = (evt) => {
+    this.setState({ message: evt.target.value });
+  }
+
   onSubmit = (evt) => {
     evt.preventDefault();
-    this.props.postNewMessageToServer(this.props.userId, this.props.selectedChatroom, evt.target.message.value)
+    this.props.postNewMessageToServer(this.props.userId, this.props.selectedChatroom, evt.target.message.value);
+    this.setState({ message: '' })
   }
 
   render() {
@@ -13,7 +23,7 @@ export class Chat extends Component {
       <div style={{ backgroundColor: 'red', height: '200px' }}>
         {this.props.messages.map(message => <h1 key={message.id}>{message.content}</h1>)}
         <form onSubmit={this.onSubmit}>
-          <input name="message"></input>
+          <input onChange={this.handleChange} value={this.state.message} name="message"></input>
           <input type="submit" value="Send" />
         </form>
       </div>
