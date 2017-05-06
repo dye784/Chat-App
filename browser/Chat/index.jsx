@@ -11,7 +11,7 @@ export class Chat extends Component {
   render() {
     return (
       <div style={{ backgroundColor: 'red', height: '200px' }}>
-        {this.props.messages.map(message => <h1 key={message.id}>{message}</h1>)}
+        {this.props.messages.map(message => <h1 key={message.id}>{message.content}</h1>)}
         <form onSubmit={this.onSubmit}>
           <input name="message"></input>
           <input type="submit" value="Send" />

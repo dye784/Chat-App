@@ -11,7 +11,7 @@ const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom }) => (
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={fetchInitialData}>
       <Route path=":chatroomId" component={Chat} onEnter={fetchAllMessagesForChatroom} />
-      <IndexRedirect to=":chatroomId" />
+      <IndexRedirect to="/1" />
     </Route>
   </Router>
 );
