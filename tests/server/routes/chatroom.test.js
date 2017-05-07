@@ -76,7 +76,7 @@ describe('Chatroom Routes', () => {
     });
   });
 
-  describe('POST /api/chatrooms/:chatroomId', () => {
+  describe('POST /api/chatrooms/:chatroomId/messages', () => {
     it('adds a message to the database', () => {
       const newMessage = {
         content: 'I am a new message',
@@ -84,7 +84,7 @@ describe('Chatroom Routes', () => {
       };
 
       return request(app)
-        .post('/api/chatrooms/1')
+        .post('/api/chatrooms/1/messages')
         .send(newMessage)
         .expect(200)
         .expect(res => expect(res.body.content).to.equal(newMessage.content))
