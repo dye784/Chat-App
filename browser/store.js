@@ -17,3 +17,4 @@ socket.on('connect', () => {
     store.dispatch(addNewMessage(message));
   });
 });
+

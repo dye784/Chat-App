@@ -6,6 +6,7 @@ import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import { fetchAllMessagesForChatroom } from './Chat/ChatActionCreators';
 import App from './App/index.jsx';
 import Chat from './Chat/index.jsx';
+import { socket } from './store';
 
 const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom }) => (
   <Router history={browserHistory}>
@@ -23,8 +24,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchLoggedInUser());
     dispatch(fetchAllChatrooms());
   },
-  fetchAllMessagesForChatroom(nextRouterState) {
-    dispatch(fetchAllMessagesForChatroom(nextRouterState.params.chatroomId));
+  fetchAllMessagesForChatroom({ params }) {
+    dispatch(fetchAllMessagesForChatroom(params.chatroomId));
   },
 });
 

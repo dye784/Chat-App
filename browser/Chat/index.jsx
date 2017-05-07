@@ -14,8 +14,11 @@ export class Chat extends Component {
 
   onSubmit = (evt) => {
     evt.preventDefault();
-    this.props.postNewMessageToServer(this.props.userId, this.props.selectedChatroom, evt.target.message.value);
-    this.setState({ message: '' })
+    const userId = this.props.userId;
+    const selectedChatroom = this.props.selectedChatroom;
+    const message = evt.target.message.value;
+    this.props.postNewMessageToServer(userId, selectedChatroom, message)
+    this.setState({ message: '' });
   }
 
   render() {
