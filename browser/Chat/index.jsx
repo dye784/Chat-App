@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { postNewMessageToServer } from './ChatActionCreators';
+import { postNewMessageToServer, addNewMessage } from './ChatActionCreators';
+import { socket } from '../store';
 
 export class Chat extends Component {
   constructor(props) {
@@ -17,15 +18,20 @@ export class Chat extends Component {
     const userId = this.props.userId;
     const selectedChatroom = this.props.selectedChatroom;
     const message = evt.target.message.value;
-    this.props.postNewMessageToServer(userId, selectedChatroom, message)
+    this.props.addNewMessage({ content: message });
+    socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
     this.setState({ message: '' });
   }
 
   render() {
     return (
       <div style={{ backgroundColor: 'red', height: '200px' }}>
-        {this.props.messages.map(message => <h1 key={message.id}>{message.content}</h1>)}
-        <form onSubmit={this.onSubmit}>
+        {this.props.messages.map((message,idx) => (
+          <h1 key={`${this.props.userId}-${this.props.selectedChatroom}-${idx}`}>
+            {message.content}
+          </h1>
+        ))}
+        <form style={{display: 'float left'}} onSubmit={this.onSubmit}>
           <input onChange={this.handleChange} value={this.state.message} name="message"></input>
           <input type="submit" value="Send" />
         </form>
@@ -40,7 +46,7 @@ const mapStateToProps = ({ auth, messages, chatrooms }, { params }) => ({
   userId: auth.id,
 });
 
-const mapDispatchToProps = { postNewMessageToServer };
+const mapDispatchToProps = { addNewMessage };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);
 

@@ -1,3 +1,5 @@
+const Message = require('../../model/message');
+
 /**
  * socketEvents - Attaches the socket events to the server
  * @param {function} io - socket.io server
@@ -19,8 +21,15 @@ const socketEvents = (io) => {
       console.log(`SocketId: ${socket.id} has disconnected!`);
     });
 
-    socket.on('newMessage', (createdMessage) => {
-      socket.broadcast.to(createdMessage.chatroom_id).emit('addMessage', createdMessage);
+    socket.on('newMessage', (message) => {
+      Message.create({
+        content: message.content,
+        user_id: message.userId,
+        chatroom_id: message.chatroomId,
+      })
+      .then((createdMessage) => {
+        socket.broadcast.to(createdMessage.chatroom_id).emit('addMessage', createdMessage);
+      });
     });
   });
 };
