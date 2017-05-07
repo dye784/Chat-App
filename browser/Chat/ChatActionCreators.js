@@ -16,6 +16,5 @@ export const loadChatMessages = (messages) => ({
 export const fetchAllMessagesForChatroom = (chatroomId) => (dispatch) => (
   axios.get(`/api/chatrooms/${chatroomId}/messages`)
   .then(res => res.data)
-  .then(receivedMessages => dispatch(loadChatMessages(receivedMessages)))
-  .catch(err => console.error('Fetching messages for chatroom unsuccessful', err))
+  .then(receivedMessages => dispatch(loadChatMessages(receivedMessages)));
 );

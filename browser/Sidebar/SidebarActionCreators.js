@@ -10,6 +10,5 @@ export const setAllChatrooms = (allChatrooms) => ({
 export const fetchAllChatrooms = () => (dispatch) => {
   axios.get('/api/chatrooms')
   .then(res => res.data)
-  .then(allChatrooms => dispatch(setAllChatrooms(allChatrooms)))
-  .catch(err => console.error('Fetch all chatrooms unsuccessful', err));
+  .then(allChatrooms => dispatch(setAllChatrooms(allChatrooms)));
 };
