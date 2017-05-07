@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { socket } from '../store';
 
 export const ADD_NEW_MESSAGE = 'ADD_NEW_MESSAGE';
 export const LOAD_CHAT_MESSAGES = 'LOAD_CHAT_MESSAGES';
