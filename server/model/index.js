@@ -7,7 +7,8 @@ const Message = require('./message');
 const Chatroom = require('./chatroom');
 
 // Associations
-User.hasMany(Message, { as: 'Messgers' });
-Chatroom.hasMany(Message, { as: 'Channels' });
+User.hasMany(Message);
+Message.belongsTo(User);
+Chatroom.hasMany(Message);
 
 module.exports = db;
