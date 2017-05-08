@@ -59,8 +59,11 @@ router.post('/login', (req, res, next) => {
 
 // DELETE request to logout user
 router.delete('/logout', (req, res, next) => {
-  req.logOut();
-  res.sendStatus(204);
+  req.user.update({ last_logout: Date.now() })
+  .then(() => {
+    req.logOut();
+    res.sendStatus(204);
+  });
 });
 
 module.exports = router;
