@@ -4,15 +4,17 @@ import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
 import { fetchLoggedInUser } from './Login/LoginActionCreator';
 import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import { fetchAllMessagesForChatroom } from './Chat/ChatActionCreators';
+import { fetchNewMessages } from './NewMessages/NewMessagesActionCreators';
 import App from './App/index.jsx';
 import Chat from './Chat/index.jsx';
+import NewMessages from './NewMessages/index.jsx';
 import { socket } from './store';
 
 const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom }) => (
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={fetchInitialData}>
-      <Route path=":chatroomId" component={Chat} onEnter={fetchAllMessagesForChatroom} />
-      <IndexRedirect to="/1" />
+      <Route path="/chatrooms/:chatroomId" component={Chat} onEnter={fetchAllMessagesForChatroom} />
+      <Route path="/newMessages" component={NewMessages} />
     </Route>
   </Router>
 );
@@ -23,6 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchInitialData() {
     dispatch(fetchLoggedInUser());
     dispatch(fetchAllChatrooms());
+    dispatch(fetchNewMessages());
   },
   fetchAllMessagesForChatroom({ params }) {
     dispatch(fetchAllMessagesForChatroom(params.chatroomId));

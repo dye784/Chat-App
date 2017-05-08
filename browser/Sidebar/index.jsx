@@ -2,14 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-export const Sidebar = ({ chatrooms }) => (
+
+export const Sidebar = ({ chatrooms, fetchNewMessagesForChatroom }) => (
   <div style={{ height: '100px' }}>
     CHATROOMS
     {chatrooms.map((chatroom) => (
-      <Link to={`/${chatroom.id}`} key={chatroom.name}>
+      <Link to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
         {chatroom.name}
       </Link>
     ))}
+    <Link to="/newMessages">VIEW NEW MESSAGES</Link>
   </div>
 );
 
