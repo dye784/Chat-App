@@ -47,7 +47,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
 });
 
-app.get('/:chatroomName', (req, res) => {
+app.get('/newMessages', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
+});
+
+app.get('/chatrooms/:chatroomId', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
 });
 
