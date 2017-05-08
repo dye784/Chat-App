@@ -25,8 +25,8 @@ export const fetchAllMessagesForChatroom = (chatroomId) => (dispatch) => (
   .then(receivedMessages => dispatch(loadChatMessages(receivedMessages)))
 );
 
-export const fetchNewMessagesForChatroom = (chatroomId) => (dispatch) => (
-  axios.get(`/api/chatrooms/${chatroomId}/messages/new`)
+export const fetchNewMessagesForChatroom = () => (dispatch) => (
+  axios.get('/api/chatrooms/messages/new')
   .then(res => res.data)
   .then(receivedNewMessages => dispatch(loadNewChatMessages(receivedNewMessages)))
 );

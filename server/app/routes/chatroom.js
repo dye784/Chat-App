@@ -12,13 +12,19 @@ router.get('/', (req, res, next) => {
   .catch(next);
 });
 
-// GET request to get all messages of a chatroom
-router.get('/:chatroomId/messages', (req, res, next) => {
+// Get new messages from chatroom since user logged in
+router.get('/messages/new', (req, res, next) => {
   Message.findAll({
     where: {
       chatroom_id: req.params.chatroomId,
+      created_at: {
+        $gte: req.user.last_logout,
+      },
     },
-    include: [{ model: User, attributes: ['username'] }],
+    include: [
+      { model: User, attributes: ['username'] },
+      { model: Chatroom, attributes: ['name'] },
+    ],
     order: [
       ['created_at', 'ASC'],
     ],
@@ -29,21 +35,16 @@ router.get('/:chatroomId/messages', (req, res, next) => {
   .catch(next);
 });
 
-// Get new messages from chatroom since user logged in
-router.get('/:chatroomId/messages/new', (req, res, next) => {
-  User.findById(req.user.id)
-  .then((foundUser) => {
-    return Message.findAll({
-      where: {
-        chatroom_id: req.params.chatroomId,
-        created_at: {
-          $gte: foundUser.last_login,
-        },
-      },
-      order: [
-        ['created_at', 'ASC'],
-      ],
-    });
+// GET request to get all messages of a chatroom
+router.get('/:chatroomId/messages', (req, res, next) => {
+  Message.findAll({
+    where: {
+      chatroom_id: req.params.chatroomId,
+    },
+    include: [{ model: User, attributes: ['username'] }],
+    order: [
+      ['created_at', 'ASC'],
+    ],
   })
   .then((foundMessages) => {
     res.send(foundMessages);

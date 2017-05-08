@@ -10,5 +10,6 @@ const Chatroom = require('./chatroom');
 User.hasMany(Message);
 Message.belongsTo(User);
 Chatroom.hasMany(Message);
+Message.belongsTo(Chatroom);
 
 module.exports = db;

@@ -25,7 +25,7 @@ export class Chat extends Component {
 
   handleClick = (evt) => {
     evt.preventDefault();
-    this.props.fetchNewMessagesForChatroom(this.props.selectedChatroom);
+    this.props.fetchNewMessagesForChatroom();
   };
 
   render() {
