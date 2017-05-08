@@ -17,7 +17,7 @@ export class Chat extends Component {
     evt.preventDefault();
     const { userId, selectedChatroom, addNewMessage } = this.props;
     const message = evt.target.message.value;
-    addNewMessage({ content: message });
+    addNewMessage({ content: message, user_id: userId });
     socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
     this.setState({ message: '' });
   }
