@@ -1,4 +1,5 @@
 const Message = require('../../model/message');
+const User = require('../../model/user');
 
 /**
  * socketEvents - Attaches the socket events to the server
@@ -28,7 +29,12 @@ const socketEvents = (io) => {
         chatroom_id: message.chatroomId,
       })
       .then((createdMessage) => {
-        socket.broadcast.to(createdMessage.chatroom_id).emit('addMessage', createdMessage);
+        return Message.findById(createdMessage.id, {
+          include: [{ model: User, attributes: ['username'] }],
+        })
+        .then((foundMessage) => {
+          socket.broadcast.to(foundMessage.chatroom_id).emit('addMessage', foundMessage);
+        });
       });
     });
   });
