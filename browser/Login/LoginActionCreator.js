@@ -7,9 +7,9 @@ export const authenticate = (user) => ({
   user,
 });
 
-export const login = (email, password) => (dispatch) => {
+export const login = (username, password) => (dispatch) => {
   axios.post('/api/auth/login', {
-    email,
+    username,
     password,
   })
   .then(res => res.data)

@@ -27,7 +27,7 @@ router.get('/me', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   User.findOrCreate({
     where: {
-      email: req.body.email,
+      username: req.body.username,
     },
     defaults: {
       password: req.body.password,

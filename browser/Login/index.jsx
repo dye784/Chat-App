@@ -5,13 +5,13 @@ import { login } from './LoginActionCreator';
 export class Login extends Component {
   onSubmit = (evt) => {
     evt.preventDefault();
-    this.props.login(evt.target.email.value, evt.target.password.value);
+    this.props.login(evt.target.username.value, evt.target.password.value);
   }
 
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input name="email" />
+        <input name="username" />
         <input name="password" type="password" />
         <input type="submit" value="Login" />
       </form>

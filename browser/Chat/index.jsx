@@ -15,20 +15,21 @@ export class Chat extends Component {
 
   onSubmit = (evt) => {
     evt.preventDefault();
-    const userId = this.props.userId;
-    const selectedChatroom = this.props.selectedChatroom;
+    const { userId, selectedChatroom, addNewMessage } = this.props;
     const message = evt.target.message.value;
-    this.props.addNewMessage({ content: message });
+    addNewMessage({ content: message });
     socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
     this.setState({ message: '' });
   }
 
   render() {
+    const { messages, selectedChatroom, userId } = this.props
+
     return (
       <div style={{ backgroundColor: 'red', height: '200px' }}>
-        {this.props.messages.map((message,idx) => (
-          <h1 key={`${this.props.userId}-${this.props.selectedChatroom}-${idx}`}>
-            {message.content}
+        {messages.map((message, idx) => (
+          <h1 key={`${userId}-${selectedChatroom}-${idx}`}>
+            {message.user_id} : {message.content}
           </h1>
         ))}
         <form style={{display: 'float left'}} onSubmit={this.onSubmit}>
