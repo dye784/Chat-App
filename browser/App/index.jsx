@@ -25,7 +25,7 @@ export class App extends Component {
     return (
       <div style={{ height: '200px' }}>
         {this.props.user ? <Logout /> : <Login /> }
-        {this.props.user && <Sidebar style={{ backgroundColor: 'green', height: '200px' }} />}
+        {this.props.user && <Sidebar />}
         {this.props.user && this.props.children }
       </div>
     );
