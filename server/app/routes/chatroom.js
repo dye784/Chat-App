@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Chatroom = require('../../model/chatroom');
 const Message = require('../../model/message');
+const User = require('../../model/user');
 
 // GET request to get all chatrooms
 router.get('/', (req, res, next) => {
@@ -17,6 +18,7 @@ router.get('/:chatroomId/messages', (req, res, next) => {
     where: {
       chatroom_id: req.params.chatroomId,
     },
+    include: [{ model: User, attributes: ['username'] }],
     order: [
       ['created_at', 'ASC'],
     ],
