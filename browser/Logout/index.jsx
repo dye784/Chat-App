@@ -4,7 +4,7 @@ import { logout } from '../Login/LoginActionCreator';
 
 export const Logout = ({ user, logout }) => (
   <div>
-    <h1> Hi {user && user.email} !</h1>
+    <h1> Hi {user && user.username} !</h1>
     <button onClick={logout}>Logout</button>
   </div>
 );

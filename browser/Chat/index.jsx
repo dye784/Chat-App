@@ -15,9 +15,9 @@ export class Chat extends Component {
 
   onSubmit = (evt) => {
     evt.preventDefault();
-    const { userId, selectedChatroom, addNewMessage } = this.props;
+    const { userId, selectedChatroom, addNewMessage, username } = this.props;
     const message = evt.target.message.value;
-    addNewMessage({ content: message, user_id: userId });
+    addNewMessage({ content: message, user: { username } });
     socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
     this.setState({ message: '' });
   }
@@ -28,9 +28,9 @@ export class Chat extends Component {
     return (
       <div style={{ backgroundColor: 'red', height: '200px' }}>
         {messages.map((message, idx) => (
-          <h1 key={`${userId}-${selectedChatroom}-${idx}`}>
-            {message.user_id} : {message.content}
-          </h1>
+          <h5 key={`${userId}-${selectedChatroom}-${idx}`}>
+            {message.user.username} : {message.content}
+          </h5>
         ))}
         <form style={{display: 'float left'}} onSubmit={this.onSubmit}>
           <input onChange={this.handleChange} value={this.state.message} name="message"></input>
@@ -45,6 +45,7 @@ const mapStateToProps = ({ auth, messages, chatrooms }, { params }) => ({
   messages,
   selectedChatroom: params.chatroomId,
   userId: auth.id,
+  username: auth.username,
 });
 
 const mapDispatchToProps = { addNewMessage };
