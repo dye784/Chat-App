@@ -1,4 +1,4 @@
-const { STRING, VIRTUAL } = require('sequelize');
+const { STRING, VIRTUAL, DATE } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const db = require('./_db');
 
@@ -25,6 +25,7 @@ const User = db.define('users', {
   },
   password_digest: STRING,
   password: VIRTUAL,
+  last_logout: DATE,
 }, {
   hooks: {
     beforeCreate: setUsernameAndPassword,
