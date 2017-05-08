@@ -2,8 +2,13 @@ const { STRING, VIRTUAL } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const db = require('./_db');
 
-const setEmailAndPassword = (user) => {
-  user.email = user.email && user.email.toLowerCase();
+/**
+ * setUsernameAndPassword
+ * @param {object} user - instance of user
+ * @returns {promise} Returns a resolved promise of setting the hash password
+ */
+const setUsernameAndPassword = (user) => {
+  user.username = user.username && user.username.toLowerCase();
   if (!user.password) { return Promise.resolve(user); }
 
   return bcrypt.hash(user.get('password'), 10)
@@ -11,11 +16,9 @@ const setEmailAndPassword = (user) => {
 };
 
 const User = db.define('users', {
-  name: STRING,
-  email: {
+  username: {
     type: STRING,
     validate: {
-      isEmail: true,
       notEmpty: true,
     },
     unique: true,
@@ -24,8 +27,8 @@ const User = db.define('users', {
   password: VIRTUAL,
 }, {
   hooks: {
-    beforeCreate: setEmailAndPassword,
-    beforeUpdate: setEmailAndPassword,
+    beforeCreate: setUsernameAndPassword,
+    beforeUpdate: setUsernameAndPassword,
   },
   instanceMethods: {
     /**
@@ -44,8 +47,7 @@ const User = db.define('users', {
      */
     toJson() {
       return {
-        name: this.name,
-        email: this.email,
+        username: this.username,
         created_at: this.created_at,
         id: this.id,
         updated_at: this.updated_at,

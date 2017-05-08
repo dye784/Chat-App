@@ -33,17 +33,15 @@ const createFakeChatroom = () => {
 
 const randomFakeUser = () => {
   return User.build({
-    name: faker.name.firstName(),
-    email: faker.internet.email(),
+    username: faker.internet.userName(),
     password: faker.internet.password(),
   });
 };
 
 const createFakeUser = () => {
   const testUser = User.build({
-    name: 'example',
+    username: 'example',
     password: '12345',
-    email: 'example@example.com',
   });
   const arrOfUsersToBeSaved = [
     testUser,
