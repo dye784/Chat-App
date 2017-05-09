@@ -34,7 +34,7 @@ body {
 
 .container-chat-history {
   overflow-y: auto;
-  height: 82%;
+  height: 81%;
   padding-left: 3%;
 }
 
@@ -70,10 +70,6 @@ body {
   font-weight: 900;
   font-size: 1rem;
   margin: 10%;
-}
-
-.sidebar-chatroom {
-  margin-bottom: 0;
 }
 
 .new-messages {
@@ -124,3 +120,7 @@ body {
   background-color: blue;
 }
 
+.username-display {
+  margin-bottom: 2%;
+  color: #fff;
+}

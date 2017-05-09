@@ -9,7 +9,8 @@ export const Sidebar = ({ chatrooms, auth }) => (
   <div className="container-sidebar">
     <div>
       <Logout />
-      <h3 className="sidebar-chatroom">CHATROOMS</h3>
+      <h3>CHATROOMS</h3>
+      <hr />
     </div>
     <div className="container-sidebar-chatrooms">
       <Link to="/newMessages" style={linkStyle}>
