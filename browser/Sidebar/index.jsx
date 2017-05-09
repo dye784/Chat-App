@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 import Logout from '../Logout/index.jsx';
 import Login from '../Login/index.jsx';
 
+const linkStyle = { textDecoration: 'none' };
+
 export const Sidebar = ({ chatrooms, auth }) => (
   <div className="container-sidebar">
     <div>
@@ -11,10 +13,12 @@ export const Sidebar = ({ chatrooms, auth }) => (
       <h3>CHATROOMS</h3>
     </div>
     <div className="container-sidebar-chatrooms">
-      <Link to="/newMessages">NEW MESSAGES</Link>
+      <Link to="/newMessages" style={linkStyle}>
+        <h5 className="chatroom-link">NEW MESSAGES</h5>
+      </Link>
       {chatrooms.map((chatroom) => (
-        <Link to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
-          <h5>#{chatroom.name}</h5>
+        <Link style={linkStyle} to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
+          <h5 className="chatroom-link">#  {chatroom.name}</h5>
         </Link>
       ))}
     </div>

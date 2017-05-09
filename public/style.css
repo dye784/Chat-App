@@ -1,5 +1,6 @@
 html {
   overflow: hidden;
+  font-family: helvetica;
 }
 
 body {
@@ -20,8 +21,7 @@ body {
 .container-sidebar {
   flex-direction: column;
   padding-right: 4%;
-  border-right: black;
-  border-right-style: solid;
+  padding-left: 1%;
   background: #4D394B;
   color: #AB9BA9;
 }
@@ -65,3 +65,6 @@ body {
   bottom: 15%;
 }
 
+.chatroom-link {
+  color: #AB9BA9;
+}
