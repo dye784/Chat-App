@@ -5,3 +5,11 @@
 .container-sidebar {
   flex-direction: column;
 }
+
+.message {
+  width: 90%;
+}
+
+/*.chatbox {
+  width: 100%;
+}*/

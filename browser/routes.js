@@ -10,11 +10,11 @@ import Chat from './Chat/index.jsx';
 import NewMessages from './NewMessages/index.jsx';
 import { socket } from './store';
 
-const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom }) => (
+const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom, fetchNewMessages }) => (
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={fetchInitialData}>
       <Route path="/chatrooms/:chatroomId" component={Chat} onEnter={fetchAllMessagesForChatroom} />
-      <Route path="/newMessages" component={NewMessages} />
+      <Route path="/newMessages" component={NewMessages} onEnter={fetchNewMessages} />
     </Route>
   </Router>
 );
@@ -30,6 +30,9 @@ const mapDispatchToProps = (dispatch) => ({
   fetchAllMessagesForChatroom({ params }) {
     dispatch(fetchAllMessagesForChatroom(params.chatroomId));
   },
+  fetchNewMessages() {
+    dispatch(fetchNewMessages());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes);

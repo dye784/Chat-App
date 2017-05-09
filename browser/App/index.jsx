@@ -7,10 +7,6 @@ import Sidebar from '../Sidebar/index.jsx';
 import { socket } from '../store';
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillReceiveProps(nextProps) {
     const previousChatroomId = this.props.params.chatroomId;
     const nextChatroomId = nextProps.params.chatroomId;
@@ -23,12 +19,10 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.user ? <Logout /> : <Login />}
-        <div className="container">
-          {this.props.user && <Sidebar />}
-          {this.props.user && this.props.children}
-        </div>
+      <div className="container">
+        {!this.props.user && <Login />}
+        {this.props.user && <Sidebar />}
+        {this.props.user && this.props.children}
       </div>
     );
   }

@@ -14,11 +14,11 @@ router.get('/', (req, res, next) => {
 
 // Get new messages from chatroom since user logged in
 router.get('/messages/new', (req, res, next) => {
+  if (!req.user) { res.send(404) }
   Message.findAll({
     where: {
-      chatroom_id: req.params.chatroomId,
       created_at: {
-        $gte: req.user.last_logout,
+        $gt: req.user.last_logout,
       },
     },
     include: [
