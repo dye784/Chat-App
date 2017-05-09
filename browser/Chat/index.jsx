@@ -30,7 +30,7 @@ export class Chat extends Component {
     return (
       <div className="container-chatbox">
         <div>
-          <h2 className="chatroom-title">{messages[0] && messages[0].chatroom.name}</h2>
+          <h2 className="chatroom-title">{messages[0] && `#${messages[0].chatroom.name}`}</h2>
           <hr />
         </div>
         <div className="container-chat-history">
