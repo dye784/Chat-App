@@ -10,6 +10,16 @@
   width: 90%;
 }
 
-/*.chatbox {
-  width: 100%;
-}*/
+.container-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.box {
+  width: 300px;
+  margin: 5px;
+  text-align: center;
+}

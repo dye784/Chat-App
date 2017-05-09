@@ -10,11 +10,13 @@ export class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <input name="username" />
-        <input name="password" type="password" />
-        <input type="submit" value="Login" />
-      </form>
+      <div className="container-login">
+          <form onSubmit={this.onSubmit}>
+            <input className="box" name="username" />
+            <input className="box"name="password" type="password" />
+            <input type="submit" value="Login" />
+          </form>
+      </div>
     );
   }
 }
