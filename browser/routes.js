@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Router, Route, browserHistory, IndexRedirect } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import { fetchLoggedInUser } from './Login/LoginActionCreator';
 import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import { fetchAllMessagesForChatroom } from './Chat/ChatActionCreators';
@@ -8,7 +8,6 @@ import { fetchNewMessages } from './NewMessages/NewMessagesActionCreators';
 import App from './App/index.jsx';
 import Chat from './Chat/index.jsx';
 import NewMessages from './NewMessages/index.jsx';
-import { socket } from './store';
 
 const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom, fetchNewMessages }) => (
   <Router history={browserHistory}>
@@ -32,7 +31,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchNewMessages() {
     dispatch(fetchNewMessages());
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes);

@@ -34,7 +34,7 @@ export class Chat extends Component {
         ))}
           <form onSubmit={this.onSubmit}>
             <input className="message" onChange={this.handleChange} value={this.state.message} name="message"></input>
-             <input type="submit" value="Send" />
+             <input type="submit" value="Send" disabled={!this.state.message.length} />
            </form>
       </div>
     );
