@@ -41,7 +41,10 @@ router.get('/:chatroomId/messages', (req, res, next) => {
     where: {
       chatroom_id: req.params.chatroomId,
     },
-    include: [{ model: User, attributes: ['username'] }],
+    include: [
+      { model: User, attributes: ['username'] },
+      { model: Chatroom, attributes: ['name'] },
+    ],
     order: [
       ['created_at', 'ASC'],
     ],

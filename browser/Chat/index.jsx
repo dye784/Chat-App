@@ -30,7 +30,7 @@ export class Chat extends Component {
     return (
       <div className="container-chatbox">
         <div>
-          <h2 className="chatroom-title">{selectedChatroom}</h2>
+          <h2 className="chatroom-title">{messages[0] && messages[0].chatroom.name}</h2>
           <hr />
         </div>
         <div className="container-chat-history">
@@ -45,7 +45,7 @@ export class Chat extends Component {
         </div>
         <div className="container-message-form">
           <form className="message-form" onSubmit={this.onSubmit}>
-            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${selectedChatroom}`}/>
+            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${messages[0] && messages[0].chatroom.name}`}/>
            </form>
         </div>
       </div>

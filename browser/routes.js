@@ -12,7 +12,7 @@ import NewMessages from './NewMessages/index.jsx';
 const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom, fetchNewMessages }) => (
   <Router history={browserHistory}>
     <Route path="/" component={App} onEnter={fetchInitialData}>
-      <Route path="/chatrooms/:chatroom" component={Chat} onEnter={fetchAllMessagesForChatroom} />
+      <Route path="/chatrooms/:chatroomId" component={Chat} onEnter={fetchAllMessagesForChatroom} />
       <Route path="/newMessages" component={NewMessages} onEnter={fetchNewMessages} />
     </Route>
   </Router>
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchNewMessages());
   },
   fetchAllMessagesForChatroom({ params }) {
-    dispatch(fetchAllMessagesForChatroom(params.chatroom));
+    dispatch(fetchAllMessagesForChatroom(params.chatroomId));
   },
   fetchNewMessages() {
     dispatch(fetchNewMessages());
