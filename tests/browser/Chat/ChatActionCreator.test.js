@@ -3,7 +3,7 @@
 const { expect } = require('chai');
 const { ADD_NEW_MESSAGE, LOAD_CHAT_MESSAGES, addNewMessage, loadChatMessages } = require('../../../browser/Chat/ChatActionCreators');
 
-describe.only('Chat Action Creators', () => {
+describe('Chat Action Creators', () => {
   describe('addNewMessage', () => {
     it('returns the correct action', () => {
       const solution = {
