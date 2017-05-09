@@ -21,7 +21,7 @@ describe('Sidebar Reducer', () => {
     expect(testStore.getState().length).to.equal(0);
   });
 
-  describe.only('SET_ALL_CHATROOMS', () => {
+  describe('SET_ALL_CHATROOMS', () => {
     it('should update the state with a new message', () => {
       testStore.dispatch({
         type: SET_ALL_CHATROOMS,
