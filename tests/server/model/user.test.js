@@ -8,8 +8,7 @@ describe('User Model', () => {
   before('Clear database', () => db.sync({ force: true }));
   afterEach('Clear database', () => db.sync({ force: true }));
   const userData = {
-    name: 'Example',
-    email: 'example@example.com',
+    username: 'example',
     password: '12345',
   };
 
@@ -35,8 +34,7 @@ describe('User Model', () => {
             const createdUserJson = createdUser.toJson();
             expect(createdUserJson.password).to.be.undefined;
             expect(createdUserJson.password_digest).to.be.undefined;
-            expect(createdUserJson.name).to.equal(userData.name);
-            expect(createdUserJson.email).to.equal(userData.email);
+            expect(createdUserJson.username).to.equal(userData.username);
             expect(createdUserJson.id).to.equal(1);
             expect(createdUserJson.created_at).to.be.not.be.undefined;
             expect(createdUserJson.updated_at).to.be.not.be.undefined;

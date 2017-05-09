@@ -11,8 +11,7 @@ describe('Auth Routes', () => {
   afterEach('Clear database', () => db.sync({ force: true }));
 
   const userData = {
-    name: 'Example',
-    email: 'example@example.com',
+    username: 'example',
     password: '12345',
   };
 
@@ -28,8 +27,7 @@ describe('Auth Routes', () => {
 
     it('fails with an invalid username and password', () => {
       const incorrectUserData = {
-        name: 'Example',
-        email: 'example@example.com',
+        username: 'example',
         password: 'wrong password',
       };
 
