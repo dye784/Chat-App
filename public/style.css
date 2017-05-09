@@ -24,6 +24,8 @@ body {
   padding-left: 1%;
   background: #4D394B;
   color: #AB9BA9;
+  flex-basis: 220px;
+  max-width: 260px;
 }
 
 .container-sidebar-chatrooms {
@@ -65,6 +67,22 @@ body {
 
 .chatroom-link {
   color: #AB9BA9;
+  font-weight: 900;
+  font-size: 1rem;
+  margin: 10%;
+}
+
+.sidebar-chatroom {
+  margin-bottom: 0;
+}
+
+.new-messages {
+  margin-top: 4%;
+}
+
+.sidebar-chatroom-link:hover {
+  background-color: #3a2f39;
+  width: 100%;
 }
 
 .chatroom-title {
@@ -105,3 +123,4 @@ body {
   color: white;
   background-color: blue;
 }
+

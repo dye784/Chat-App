@@ -9,16 +9,18 @@ export const Sidebar = ({ chatrooms, auth }) => (
   <div className="container-sidebar">
     <div>
       <Logout />
-      <h3>CHATROOMS</h3>
+      <h3 className="sidebar-chatroom">CHATROOMS</h3>
     </div>
     <div className="container-sidebar-chatrooms">
       <Link to="/newMessages" style={linkStyle}>
-        <h5 className="chatroom-link">NEW MESSAGES</h5>
+        <h5 className="chatroom-link new-messages">NEW MESSAGES</h5>
       </Link>
       {chatrooms.map((chatroom) => (
-        <Link style={linkStyle} to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
-          <h5 className="chatroom-link">#  {chatroom.name}</h5>
-        </Link>
+        <div className="sidebar-chatroom-link">
+          <Link style={linkStyle} to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
+            <h5 className="chatroom-link">#  {chatroom.name}</h5>
+          </Link>
+        </div>
       ))}
     </div>
   </div>
