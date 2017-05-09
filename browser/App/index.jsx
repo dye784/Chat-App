@@ -24,9 +24,11 @@ export class App extends Component {
   render() {
     return (
       <div>
-        {this.props.user ? <Logout /> : <Login /> }
-        {this.props.user && <Sidebar />}
-        {this.props.user && this.props.children }
+        {this.props.user ? <Logout /> : <Login />}
+        <div className="container">
+          {this.props.user && <Sidebar />}
+          {this.props.user && this.props.children}
+        </div>
       </div>
     );
   }

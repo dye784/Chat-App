@@ -4,11 +4,11 @@ import { Link } from 'react-router';
 
 
 export const Sidebar = ({ chatrooms, fetchNewMessagesForChatroom }) => (
-  <div>
-    CHATROOMS
+  <div className="container-sidebar">
+    <h3>CHATROOMS</h3>
     {chatrooms.map((chatroom) => (
-      <Link to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
-        {chatroom.name}
+      <Link className="container-sidebar" to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
+        <h5>{chatroom.name}</h5>
       </Link>
     ))}
     <Link to="/newMessages">VIEW NEW MESSAGES</Link>
