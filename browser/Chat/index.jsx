@@ -45,7 +45,7 @@ export class Chat extends Component {
         </div>
         <div className="container-message-form">
           <form className="message-form" onSubmit={this.onSubmit}>
-            <input onSubmit={this.onSubmit} className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${selectedChatroom}`}/>
+            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${selectedChatroom}`}/>
            </form>
         </div>
       </div>
