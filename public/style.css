@@ -22,6 +22,8 @@ body {
   padding-right: 4%;
   border-right: black;
   border-right-style: solid;
+  background: #4D394B;
+  color: #AB9BA9;
 }
 
 .container-sidebar-chatrooms {
