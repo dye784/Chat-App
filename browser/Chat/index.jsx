@@ -27,6 +27,10 @@ export class Chat extends Component {
     const { messages, selectedChatroom, userId } = this.props
     return (
       <div className="container-chatbox">
+        <div>
+          <h2 className="chatroom-title">{selectedChatroom}</h2>
+          <hr />
+        </div>
         <div className="container-chat-history">
           {messages.map((message, idx) => (
             <span key={`${userId}-${selectedChatroom}-${idx}`}>
@@ -35,10 +39,10 @@ export class Chat extends Component {
           ))}
         </div>
         <div className="container-message-form">
-            <form onSubmit={this.onSubmit}>
-              <input className="message" onChange={this.handleChange} value={this.state.message} name="message"></input>
-               <input type="submit" value="Send" disabled={!this.state.message.length} />
-             </form>
+          <form className="message-form" onSubmit={this.onSubmit}>
+            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${selectedChatroom}`}/>
+             <input type="submit" value="Send" disabled={!this.state.message.length} />
+           </form>
         </div>
       </div>
     );

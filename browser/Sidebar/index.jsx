@@ -17,7 +17,7 @@ export const Sidebar = ({ chatrooms, auth }) => (
         <h5 className="chatroom-link">NEW MESSAGES</h5>
       </Link>
       {chatrooms.map((chatroom) => (
-        <Link style={linkStyle} to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
+        <Link style={linkStyle} activeStyle={{ color: 'red' }} to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
           <h5 className="chatroom-link">#  {chatroom.name}</h5>
         </Link>
       ))}

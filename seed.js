@@ -20,7 +20,7 @@ const doTimes = (n, fn) => {
   return results;
 };
 
-const randomFakeChatroom = () => Chatroom.build({ name: faker.random.word() });
+const randomFakeChatroom = () => Chatroom.build({ name: faker.internet.domainName() });
 
 const createFakeChatroom = () => {
   const generalChatroom = Chatroom.build({ name: 'general' });

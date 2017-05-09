@@ -32,16 +32,14 @@ body {
 
 .container-chat-history {
   overflow-y: auto;
-  height: 92%;
+  height: 82%;
   padding-left: 2%;
 }
 
 .container-message-form {
   flex-direction: column;
-}
-
-.message {
-  width: 90%;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
 .container-login {
@@ -67,4 +65,16 @@ body {
 
 .chatroom-link {
   color: #AB9BA9;
+}
+
+.chatroom-title {
+  padding-left: 2%;
+}
+
+.message-form {
+  display: flex;
+}
+
+.message-text-area {
+  flex: 1;
 }
