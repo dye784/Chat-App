@@ -11,11 +11,11 @@ export class Login extends Component {
   render() {
     return (
       <div className="container-login">
-          <form className="login-form" onSubmit={this.onSubmit}>
-            <input className="box" name="username" />
-            <input className="box"name="password" type="password" />
-            <input type="submit" value="Login" />
-          </form>
+        <form className="login-form" onSubmit={this.onSubmit}>
+          <input className="box" name="username" placeholder="username" />
+          <input className="box"name="password" type="password" placeholder="password" />
+          <input className="box" type="submit" value="Login" />
+        </form>
       </div>
     );
   }
