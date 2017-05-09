@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 
 export const Sidebar = ({ chatrooms, fetchNewMessagesForChatroom }) => (
-  <div style={{ height: '100px' }}>
+  <div>
     CHATROOMS
     {chatrooms.map((chatroom) => (
       <Link to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>

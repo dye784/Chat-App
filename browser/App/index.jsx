@@ -23,7 +23,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div style={{ height: '200px' }}>
+      <div>
         {this.props.user ? <Logout /> : <Login /> }
         {this.props.user && <Sidebar />}
         {this.props.user && this.props.children }
