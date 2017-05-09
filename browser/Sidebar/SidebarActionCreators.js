@@ -7,8 +7,8 @@ export const setAllChatrooms = (allChatrooms) => ({
   allChatrooms,
 });
 
-export const fetchAllChatrooms = () => (dispatch) => {
+export const fetchAllChatrooms = () => (dispatch) => (
   axios.get('/api/chatrooms')
   .then(res => res.data)
-  .then(allChatrooms => dispatch(setAllChatrooms(allChatrooms)));
-};
+  .then(allChatrooms => dispatch(setAllChatrooms(allChatrooms)))
+);
