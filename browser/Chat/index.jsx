@@ -18,9 +18,11 @@ export class Chat extends Component {
     evt.preventDefault();
     const { userId, selectedChatroom, addNewMessage, username } = this.props;
     const message = evt.target.message.value;
-    addNewMessage({ content: message, user: { username } });
-    socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
-    this.setState({ message: '' });
+    if (message.trim().length > 0) {
+      addNewMessage({ content: message, user: { username } });
+      socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
+      this.setState({ message: '' });
+    }
   }
 
   render() {
@@ -43,8 +45,7 @@ export class Chat extends Component {
         </div>
         <div className="container-message-form">
           <form className="message-form" onSubmit={this.onSubmit}>
-            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${selectedChatroom}`}/>
-             <input type="submit" value="Send" disabled={!this.state.message.length} />
+            <input onSubmit={this.onSubmit} className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${selectedChatroom}`}/>
            </form>
         </div>
       </div>

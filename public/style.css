@@ -73,6 +73,9 @@ body {
 
 .message-form {
   display: flex;
+  border: 2px solid #E0E0E0;
+  border-radius: .375rem;
+  min-height: 41px;
 }
 
 .message-text-area {
