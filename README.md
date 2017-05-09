@@ -53,4 +53,5 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 2. Enzyme tests.
 3. Redux Thunk tests.
 4. Socket.io tests.
-5. New messages for each channel
+5. Display new messages for each channel.
+6. Auto scroll to bottom on new message.
