@@ -2,7 +2,7 @@
 
 const { expect } = require('chai');
 const { createStore } = require('redux');
-const { ADD_NEW_MESSAGE, LOAD_CHAT_MESSAGES, addNewMessage, loadChatMessages } = require('../../../browser/Chat/ChatActionCreators');
+const { ADD_NEW_MESSAGE, LOAD_CHAT_MESSAGES } = require('../../../browser/Chat/ChatActionCreators');
 const ChatReducer = require('../../../browser/Chat/ChatReducer').default;
 
 describe('Chat Reducer', () => {
