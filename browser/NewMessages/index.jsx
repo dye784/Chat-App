@@ -9,8 +9,8 @@ export const NewMessages = ({ newMessages }) => {
       <div className="container-chat-history">
         {newMessages.map(newMessage => (
           <div key={`${newMessage.user_id}-${newMessage.chatroom_id}-${newMessage.id}-new`}>
-            <h3>Chatroom - {newMessage.chatroom.name}</h3>
-            <h5>{newMessage.user.username} : {newMessage.content}</h5>
+            <div className="message-content-header">Chatroom - {newMessage.chatroom.name}</div>
+            <div className="chat-message">{newMessage.user.username} : {newMessage.content}</div>
           </div>
           ))}
       </div>
