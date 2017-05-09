@@ -33,9 +33,12 @@ export class Chat extends Component {
         </div>
         <div className="container-chat-history">
           {messages.map((message, idx) => (
-            <span key={`${userId}-${selectedChatroom}-${idx}`}>
-              <h5>{message.user.username} : {message.content}</h5>
-            </span>
+            <div key={`${userId}-${selectedChatroom}-${idx}`}>
+              <div className="message-content-header">
+                {message.user.username}
+              </div>
+              <div className="chat-message">{message.content}</div>
+            </div>
           ))}
         </div>
         <div className="container-message-form">

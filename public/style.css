@@ -78,3 +78,14 @@ body {
 .message-text-area {
   flex: 1;
 }
+
+.chat-message {
+  color: #2C2D30;
+  font-size: 15px;
+  padding-bottom: 3%;
+}
+
+.message-content-header {
+  font-weight: 900;
+  color: #2C2D30;
+}
