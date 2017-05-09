@@ -1,3 +1,7 @@
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +12,29 @@ body {
   height: 100vh;
 }
 
+.container-chatbox {
+  flex-direction: column;
+  width: 90%;
+}
+
 .container-sidebar {
+  flex-direction: column;
+  padding-right: 4%;
+  border-right: black;
+  border-right-style: solid;
+}
+
+.container-sidebar-chatrooms {
+  overflow-y: auto;
+}
+
+.container-chat-history {
+  overflow-y: auto;
+  height: 92%;
+  padding-left: 2%;
+}
+
+.container-message-form {
   flex-direction: column;
 }
 

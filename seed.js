@@ -8,9 +8,9 @@ const User = require('./server/model/user');
 const Chatroom = require('./server/model/chatroom');
 const Message = require('./server/model/message');
 
-const numChatrooms = 5;
-const numUsers = 10;
-const numMessages = 50;
+const numChatrooms = 10;
+const numUsers = 20;
+const numMessages = 300;
 
 const doTimes = (n, fn) => {
   const results = [];

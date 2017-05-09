@@ -6,14 +6,18 @@ import Login from '../Login/index.jsx';
 
 export const Sidebar = ({ chatrooms, auth }) => (
   <div className="container-sidebar">
-    <Logout />
-    <h3>CHATROOMS</h3>
-    {chatrooms.map((chatroom) => (
-      <Link to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
-        <h5>#{chatroom.name}</h5>
-      </Link>
-    ))}
-    <Link to="/newMessages">VIEW NEW MESSAGES</Link>
+    <div>
+      <Logout />
+      <h3>CHATROOMS</h3>
+    </div>
+    <div className="container-sidebar-chatrooms">
+      <Link to="/newMessages">NEW MESSAGES</Link>
+      {chatrooms.map((chatroom) => (
+        <Link to={`/chatrooms/${chatroom.id}`} key={chatroom.name}>
+          <h5>#{chatroom.name}</h5>
+        </Link>
+      ))}
+    </div>
   </div>
 );
 
