@@ -2,6 +2,7 @@
 
 ### Introduction
 Hello, My name is Damon Ye and this is a Chat App I built!
+The app is built using React, Redux, Node, Express, Sequelize, Postgres, and Socket.io. Testing is done with mocha, chai, and supertest.
 
 ### Installation
 **Fork** and **clone** this repository.
@@ -49,3 +50,7 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 
 ### Features to Add
 1. Send only a few messages and allow scrolling to send queries to retreive more messages.
+2. Enzyme tests.
+3. Redux Thunk tests.
+4. Socket.io tests.
+5. New messages for each channel
