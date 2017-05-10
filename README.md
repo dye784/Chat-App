@@ -13,13 +13,13 @@ Then insall the dependencies
 npm install
 ```
 
-Then create the database
+Then create the database (Make sure you have Postgres running!)
 
 ```
 npm run db-init
 ```
 
-Then seed the database
+Then seed the database (Random data with Fakerjs)
 
 ```
 npm run seed
@@ -55,3 +55,4 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 4. Socket.io tests.
 5. Display new messages for each channel.
 6. Auto scroll to bottom on new message.
+7. Put time stamps some place.

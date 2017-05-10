@@ -1,7 +1,7 @@
 {
-  "name": "nerdsbundle",
+  "name": "chatapp",
   "version": "1.0.0",
-  "description": "NERDS Starter Pack",
+  "description": "Chat App",
   "main": "server/main.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register tests/**/**/*.test.js",
