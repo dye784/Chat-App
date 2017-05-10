@@ -25,3 +25,5 @@ Thumbs.db
 # Bundle files
 public/bundle.js
 public/bundle.js.map
+
+gitlogs.txt
