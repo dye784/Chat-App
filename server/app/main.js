@@ -22,7 +22,7 @@ const socketEvents = require('./sockets');
 socketEvents(io);
 
 // Logging Middleware
-app.use(morgan('dev'));
+if (!isProduction) { app.use(morgan('dev')); }
 
 // Server up static files from '../../public'
 app.use(express.static(path.join(__dirname, '..', '..', 'public')));
@@ -42,17 +42,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Server up index.html file
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
-});
+// Serve up index.html file
+const validFrontEndRoutes = ['/', '/newMessages', '/chatrooms', '/chatrooms/:chatroomId'];
 
-app.get('/newMessages', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
-});
-
-app.get('/chatrooms/:chatroomId', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
+validFrontEndRoutes.forEach((uri) => {
+  app.get(uri, (req, res) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'));
+  });
 });
 
 // Reroute to /api
