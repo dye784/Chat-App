@@ -56,3 +56,11 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 5. Display new messages for each channel.
 6. Auto scroll to bottom on new message.
 7. Put time stamps some place.
+
+### Current Concerns
+For the mvp, I designed it so it serves up all the messages for all the chatrooms. The next stage was to design it to be more scalable. Initially I wanted to design it so that on the initial request to the server, the server sends back the first 20 or so messages for each chatroom. When a user scrolls up past the first 20 messages it would then send a request to the server to retrieve the next 20 or so messages for that specific channel. One of the main blockers for this was figuring out how to tract scrolling using React. Unfortunately I could not figure that part out. So I did not move forward with the scalability optimization.
+
+Another challenge that arose from scrolling with React is to scroll to the bottom of the chat when a new message is received.
+
+As the number of chatrooms, users, and messages grows the initial request to the database would take longer to retrieve the data. It would then make sense to provide a load screen till the response is received.
+
