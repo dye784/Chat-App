@@ -18,3 +18,13 @@ export const fetchAllMessagesForChatroom = (chatroomId) => (dispatch) => (
   .then(res => res.data)
   .then(receivedMessages => dispatch(loadChatMessages(receivedMessages)))
 );
+
+// export const addNewMessageForChatroom = (message, userId, chatroomId) => (dispatch) => (
+//   axios.post(`/api/chatrooms/${chatroomId}/messages`, {
+//     content: message,
+//     user_id: userId,
+//     chatroom_id: chatroomId,
+//   })
+//   .then(res => res.data)
+//   .then(createdMessage => dispatch(addNewMessage(createdMessage)))
+// );

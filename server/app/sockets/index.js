@@ -23,11 +23,7 @@ const socketEvents = (io) => {
     });
 
     socket.on('newMessage', (message) => {
-      Message.create({
-        content: message.content,
-        user_id: message.userId,
-        chatroom_id: message.chatroomId,
-      })
+      Message.create(message)
       .then((createdMessage) => {
         return Message.findById(createdMessage.id, {
           include: [{ model: User, attributes: ['username'] }],

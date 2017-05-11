@@ -17,8 +17,8 @@ router.get('/messages/new', (req, res, next) => {
   if (!req.user) { res.send(404) }
   Message.findAll({
     where: {
-      created_at: {
-        $gt: req.user.last_logout,
+      createdAt: {
+        $gt: req.user.lastLogout,
       },
     },
     include: [
@@ -26,7 +26,7 @@ router.get('/messages/new', (req, res, next) => {
       { model: Chatroom, attributes: ['name'] },
     ],
     order: [
-      ['created_at', 'ASC'],
+      ['createdAt', 'ASC'],
     ],
   })
   .then((foundMessages) => {
@@ -39,14 +39,14 @@ router.get('/messages/new', (req, res, next) => {
 router.get('/:chatroomId/messages', (req, res, next) => {
   Message.findAll({
     where: {
-      chatroom_id: req.params.chatroomId,
+      chatroomId: req.params.chatroomId,
     },
     include: [
       { model: User, attributes: ['username'] },
       { model: Chatroom, attributes: ['name'] },
     ],
     order: [
-      ['created_at', 'ASC'],
+      ['createdAt', 'ASC'],
     ],
   })
   .then((foundMessages) => {
@@ -57,11 +57,7 @@ router.get('/:chatroomId/messages', (req, res, next) => {
 
 // POST request to add a message
 router.post('/:chatroomId/messages', (req, res, next) => {
-  Message.create({
-    content: req.body.content,
-    user_id: req.body.userId,
-    chatroom_id: req.params.chatroomId,
-  })
+  Message.create(req.body)
   .then((createdMessage) => {
     res.send(createdMessage);
   })
