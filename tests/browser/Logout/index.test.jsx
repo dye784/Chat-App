@@ -44,7 +44,7 @@ describe('<LogoutContainer />', () => {
   let root;
   let store;
   beforeEach('create store, shallow render container', () => {
-    store = createStore(state => state, state);
+    store = createStore(reducerState => reducerState, state);
     root = shallow(<LogoutContainer store={store} />);
   });
 
