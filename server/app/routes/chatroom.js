@@ -57,9 +57,17 @@ router.get('/:chatroomId/messages', (req, res, next) => {
 
 // POST request to add a message
 router.post('/:chatroomId/messages', (req, res, next) => {
-  Message.create(req.body)
-  .then((createdMessage) => {
-    res.send(createdMessage);
+  User.findById(req.body.userId)
+  .then((foundUser) => {
+    return Message.create(req.body)
+      .then((createdMessage) => {
+        const createdMessageInJSON = createdMessage.toJSON();
+        createdMessageInJSON.user = foundUser;
+        return createdMessageInJSON;
+      });
+  })
+  .then((completeMessage) => {
+    res.send(completeMessage);
   })
   .catch(next);
 });

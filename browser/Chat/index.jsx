@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { postNewMessageToServer, addNewMessage } from './ChatActionCreators';
+import { postNewMessageToServer, addNewMessageForChatroom } from './ChatActionCreators';
 import { socket } from '../store';
 
 export class Chat extends Component {
@@ -16,17 +16,16 @@ export class Chat extends Component {
 
   onSubmit = (evt) => {
     evt.preventDefault();
-    const { userId, selectedChatroom, addNewMessage, username } = this.props;
-    const message = evt.target.message.value;
-    if (message.trim().length > 0) {
-      addNewMessage({ content: message, user: { username } });
-      socket.emit('newMessage', { userId, chatroomId: selectedChatroom, content: message })
+    const { userId, chatroomId, addNewMessageForChatroom, username } = this.props;
+    const content = evt.target.message.value;
+    if (content.trim().length > 0) {
+      addNewMessageForChatroom({ content, userId, chatroomId });
       this.setState({ message: '' });
     }
   }
 
   render() {
-    const { messages, selectedChatroom, userId } = this.props
+    const { messages, chatroomId, userId } = this.props
     return (
       <div className="container-chatbox">
         <div>
@@ -35,7 +34,7 @@ export class Chat extends Component {
         </div>
         <div className="container-chat-history">
           {messages.map((message, idx) => (
-            <div key={`${userId}-${selectedChatroom}-${idx}`}>
+            <div key={`${message.user.userId}-${chatroomId}-${idx}`}>
               <div className="message-content-header">
                 {message.user.username}
               </div>
@@ -55,12 +54,12 @@ export class Chat extends Component {
 
 const mapStateToProps = ({ auth, messages, chatrooms }, { params }) => ({
   messages,
-  selectedChatroom: params.chatroomId,
+  chatroomId: params.chatroomId,
   userId: auth.id,
   username: auth.username,
 });
 
-const mapDispatchToProps = { addNewMessage };
+const mapDispatchToProps = { addNewMessageForChatroom };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chat);
 
