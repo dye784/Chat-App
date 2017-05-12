@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 import SidebarContainer, { Sidebar } from '../../../browser/Sidebar/index.jsx';
 chai.use(chaiEnzyme());
 
-describe.only('<Sidebar />', () => {
+describe('<Sidebar />', () => {
   const chatrooms = [{ id: 1 }, { id: 2 }];
   const auth = { username: 'example' };
   let root;
@@ -31,7 +31,7 @@ describe.only('<Sidebar />', () => {
   });
 });
 
-describe.only('<SidebarContainer />', () => {
+describe('<SidebarContainer />', () => {
   const state = {
     chatrooms: ['general', 'rando'],
     auth: { username: 'example' },
