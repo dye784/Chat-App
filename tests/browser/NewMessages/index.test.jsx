@@ -32,3 +32,16 @@ describe('<NewMessages />', () => {
   });
 });
 
+describe('<NewMessagesContainer />', () => {
+  const state = { newMessages: ['a', 'b', 'c'] };
+  let root;
+  let store;
+  beforeEach('shallow render NewMessages', () => {
+    store = createStore(reducerState => reducerState, state);
+    root = shallow(<NewMessagesContainer store={store} />);
+  });
+
+  it('gets props.newMesssages from state.newMessages', () => {
+    expect(root.find(NewMessages)).to.have.prop('newMessages');
+  });
+});
