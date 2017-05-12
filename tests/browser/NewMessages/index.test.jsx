@@ -36,7 +36,7 @@ describe('<NewMessagesContainer />', () => {
   const state = { newMessages: ['a', 'b', 'c'] };
   let root;
   let store;
-  beforeEach('shallow render NewMessages', () => {
+  beforeEach('shallow render NewMessagesContainer and create store', () => {
     store = createStore(reducerState => reducerState, state);
     root = shallow(<NewMessagesContainer store={store} />);
   });
