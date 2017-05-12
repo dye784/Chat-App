@@ -5,9 +5,6 @@ import { createStore } from 'redux';
 import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import { spy } from 'sinon';
-import sinonChai from 'sinon-chai';
-chai.use(sinonChai);
 import NewMessagesContainer, { NewMessages } from '../../../browser/NewMessages/index.jsx';
 chai.use(chaiEnzyme());
 
