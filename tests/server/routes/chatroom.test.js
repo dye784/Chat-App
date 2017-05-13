@@ -14,32 +14,30 @@ describe('Chatroom Routes', () => {
 
   const message1 = {
     content: 'Hello world!',
-    user_id: 1,
-    chatroom_id: 1,
+    userId: 1,
+    chatroomId: 1,
   };
 
   const message2 = {
     content: 'Example content.',
-    user_id: 1,
-    chatroom_id: 1,
+    userId: 1,
+    chatroomId: 1,
   };
 
   const message3 = {
     content: 'Sometimes I get creative with seed data',
-    user_id: 1,
-    chatroom_id: 1,
+    userId: 1,
+    chatroomId: 1,
   };
 
   beforeEach('Create a Message', () => {
     return User.create({
-      name: 'Example',
-      email: 'example@example.com',
+      username: 'example',
       password: '12345',
     })
     .then(() => {
       return User.create({
-        name: 'Stranger',
-        email: 'strange@strange.com',
+        username: 'Stranger',
         password: 'somethingStrange',
       });
     })
@@ -76,11 +74,12 @@ describe('Chatroom Routes', () => {
     });
   });
 
-  describe('POST /api/chatrooms/:chatroomId/messages', () => {
+  describe.only('POST /api/chatrooms/:chatroomId/messages', () => {
     it('adds a message to the database', () => {
       const newMessage = {
         content: 'I am a new message',
         userId: 2,
+        chatroomId: 1,
       };
 
       return request(app)
@@ -88,7 +87,7 @@ describe('Chatroom Routes', () => {
         .send(newMessage)
         .expect(200)
         .expect(res => expect(res.body.content).to.equal(newMessage.content))
-        .expect(res => expect(res.body.chatroom_id).to.equal(1));
+        .expect(res => expect(res.body.chatroomId).to.equal(1));
     });
   });
 });
