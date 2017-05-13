@@ -51,7 +51,7 @@ export class Chat extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, messages, chatrooms }, { params }) => ({
+const mapStateToProps = ({ auth, messages }, { params }) => ({
   messages,
   chatroomId: params.chatroomId,
   userId: auth.id,

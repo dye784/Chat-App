@@ -25,6 +25,6 @@ export const addNewMessageForChatroom = (newMessage) => (dispatch) => (
   .then(res => res.data)
   .then((createdMessage) => {
     dispatch(addNewMessage(createdMessage));
-    // socket.emit('newMessage', createdMessage);
+    socket.emit('newMessage', createdMessage);
   })
 );

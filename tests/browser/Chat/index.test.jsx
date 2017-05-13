@@ -12,22 +12,62 @@ import ChatContainer, { Chat } from '../../../browser/Chat/index.jsx';
 chai.use(chaiEnzyme());
 
 describe('<Chat />', () => {
+  const messages = [{
+    user: { userId: 1, username: 'example' },
+    chatroom: { name: 'general' },
+    content: 'something clever',
+  }];
+  const chatroomId = 1;
+  const userId = 1;
   let root;
-  beforeEach('shallow render Chat');
+  beforeEach('shallow render Chat', () => {
+    root = shallow(<Chat messages={messages} chatroomId={chatroomId} userId={userId} />);
+  });
+
+  it('has an input tag for messages', () => {
+    expect(root.find('input[name="message"]')).to.have.length(1);
+  });
+
+  describe('onSubmit', () => {
+    const submitEvent = {
+      preventDefault: spy(),
+      target: {
+        message: { value: 'blah blah blah' },
+      },
+    };
+    const addNewMessageForChatroom = spy();
+
+    beforeEach('shallow render compoenent and reset spies', () => {
+      addNewMessageForChatroom.reset();
+      submitEvent.preventDefault.reset();
+      root = shallow(<Chat addNewMessageForChatroom={addNewMessageForChatroom} messages={messages} chatroomId={chatroomId} userId={userId} />);
+      root.find('form').simulate('submit', submitEvent);
+    });
+
+    it('calls addNewMessageForChatroom on submit', () => {
+      expect(addNewMessageForChatroom).to.have.been.calledWith({ content: submitEvent.target.message.value, userId, chatroomId });
+    });
+
+    it('calls evt.preventDefault', () => {
+      expect(submitEvent.preventDefault).to.have.been.called;
+    });
+  });
 });
 
-describe.only('<ChatContainer />', () => {
+describe('<ChatContainer />', () => {
   const state = {
-    auth: {},
-    messages: [],
-    chatrooms: [],
-    selectedChatroom: 1,
+    auth: { id: 1, username: 'example' },
+    messages: [{
+      user: { userId: 1, username: 'example' },
+      chatroom: { name: 'general' },
+      content: 'something clever',
+    }],
   };
   let root;
   let store;
   beforeEach('shallow render ChatContainer and create test store', () => {
-    store = createStore(reducerState => reducerState, {});
-    root = shallow(<ChatContainer store={store} />);
+    store = createStore(reducerState => reducerState, state);
+    root = shallow(<ChatContainer params={{ chatroomId: 1 }} store={store} />);
   });
 
   it('has props.userId from state.auth.id', () => {
@@ -35,14 +75,14 @@ describe.only('<ChatContainer />', () => {
   });
 
   it('has props.messages from state.messages', () => {
-    // body...
+    expect(root.find(Chat)).to.have.prop('messages');
   });
 
-  it('has props.selectedChatroom from ownProps.params', () => {
-    // body...
+  it('has props.chatroomId from ownProps.params', () => {
+    expect(root.find(Chat)).to.have.prop('chatroomId');
   });
 
   it('has props.username from state.auth.username', () => {
-    // body...
+    expect(root.find(Chat)).to.have.prop('username');
   });
 });
