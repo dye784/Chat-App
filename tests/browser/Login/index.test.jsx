@@ -48,6 +48,10 @@ describe('<Login />', () => {
       expect(login).to.have.been.calledWith(
         submitEvent.target.username.value, submitEvent.target.password.value);
     });
+
+    it('calls evt.preventDefault', () => {
+      expect(submitEvent.preventDefault).to.have.been.called;
+    });
   });
 });
 

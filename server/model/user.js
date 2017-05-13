@@ -49,9 +49,9 @@ const User = db.define('users', {
     toJson() {
       return {
         username: this.username,
-        created_at: this.created_at,
+        createdAt: this.createdAt,
         id: this.id,
-        updated_at: this.updated_at,
+        updatedAt: this.updatedAt,
       };
     },
   },

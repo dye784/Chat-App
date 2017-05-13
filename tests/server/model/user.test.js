@@ -36,8 +36,8 @@ describe('User Model', () => {
             expect(createdUserJson.password_digest).to.be.undefined;
             expect(createdUserJson.username).to.equal(userData.username);
             expect(createdUserJson.id).to.equal(1);
-            expect(createdUserJson.created_at).to.be.not.be.undefined;
-            expect(createdUserJson.updated_at).to.be.not.be.undefined;
+            expect(createdUserJson.createdAt).to.be.not.be.undefined;
+            expect(createdUserJson.updatedAt).to.be.not.be.undefined;
           });
       });
     });
