@@ -74,7 +74,7 @@ describe('Chatroom Routes', () => {
     });
   });
 
-  describe.only('POST /api/chatrooms/:chatroomId/messages', () => {
+  describe('POST /api/chatrooms/:chatroomId/messages', () => {
     it('adds a message to the database', () => {
       const newMessage = {
         content: 'I am a new message',
