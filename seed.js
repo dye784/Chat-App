@@ -35,7 +35,7 @@ const randomFakeUser = () => {
   return User.build({
     username: faker.internet.userName(),
     password: faker.internet.password(),
-    last_logout: Date.now(),
+    lastLogout: Date.now(),
   });
 };
 
@@ -43,7 +43,7 @@ const createFakeUser = () => {
   const testUser = User.build({
     username: 'example',
     password: '12345',
-    last_logout: Date.now(),
+    lastLogout: Date.now(),
   });
   const arrOfUsersToBeSaved = [
     testUser,
@@ -55,8 +55,8 @@ const createFakeUser = () => {
 const randomFakeMessage = () => {
   return Message.build({
     content: faker.lorem.sentence(),
-    user_id: faker.random.number({ min: 1, max: numUsers }),
-    chatroom_id: faker.random.number({ min: 1, max: numChatrooms + 1 }),
+    userId: faker.random.number({ min: 1, max: numUsers }),
+    chatroomId: faker.random.number({ min: 1, max: numChatrooms + 1 }),
   });
 };
 

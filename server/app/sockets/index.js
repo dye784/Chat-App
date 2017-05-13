@@ -22,20 +22,8 @@ const socketEvents = (io) => {
       console.log(`SocketId: ${socket.id} has disconnected!`);
     });
 
-    socket.on('newMessage', (message) => {
-      Message.create({
-        content: message.content,
-        user_id: message.userId,
-        chatroom_id: message.chatroomId,
-      })
-      .then((createdMessage) => {
-        return Message.findById(createdMessage.id, {
-          include: [{ model: User, attributes: ['username'] }],
-        })
-        .then((foundMessage) => {
-          socket.broadcast.to(foundMessage.chatroom_id).emit('addMessage', foundMessage);
-        });
-      });
+    socket.on('newMessage', (newMessage) => {
+      socket.broadcast.to(newMessage.chatroomId).emit('addMessage', newMessage);
     });
   });
 };

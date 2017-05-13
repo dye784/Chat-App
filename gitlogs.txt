@@ -1,0 +1,150 @@
+1417a6c - (HEAD -> master) docs: add detail to readme (19 minutes ago) <dye784>
+145cec1 - (origin/refactorComponents, origin/master, refactorComponents) docs: add to readme (60 minutes ago) <dye784>
+73ae6eb - refactor: login into dumb component (76 minutes ago) <dye784>
+d13540c - (origin/styleTouchUps, styleTouchUps) style: login form flex styles (2 hours ago) <dye784>
+615f20e - style: organize css (2 hours ago) <dye784>
+edc8c54 - style: add # to chatroom title (2 hours ago) <dye784>
+2c54c19 - style: add line breaks and move text area up (2 hours ago) <dye784>
+81fbe8a - (origin/urlDisplay, urlDisplay) feat: add chatroom name instead of id (2 hours ago) <dye784>
+291844a - (origin/styleColor, styleColor) style: add hover highlighting (3 hours ago) <dye784>
+59b80a0 - style: text box message font size increase, padding left (3 hours ago) <dye784>
+c3d23da - style: remove submit button and add trim function on submit (3 hours ago) <dye784>
+d0ba0f0 - style: add styling to new message similar to chat history (3 hours ago) <dye784>
+534f55a - style: move username above and add padding to bottom of message (4 hours ago) <dye784>
+8015f7b - style: add chatroom id at top, center messaging area, fix new messages chatroom, seed domain instead of random (4 hours ago) <dye784>
+0cc93c9 - style: disable link decoration for cutom styling (4 hours ago) <dye784>
+180f841 - style: add slack color (5 hours ago) <dye784>
+ba1c5a6 - (origin/chatScroll, chatScroll) style: add scrolling, remove greeting, increase seed (5 hours ago) <dye784>
+22296a4 - (origin/loginStyle, loginStyle) style: add gradient to login form (6 hours ago) <dye784>
+f54e3e8 - style: centered login (6 hours ago) <dye784>
+8caac6b - (origin/disableSend, disableSend) feat: disable send button when no entry (6 hours ago) <dye784>
+d956ca2 - (origin/flexboxStyle, flexboxStyle) feat: new messages displaying (7 hours ago) <dye784>
+259f647 - style: add flexbox (19 hours ago) <dye784>
+892217d - (origin/actionCreatorRefactor, actionCreatorRefactor) refactor: implicit return on thunks (19 hours ago) <dye784>
+76bdd1a - (origin/freshCSS, freshCSS) fix: start css from scratch (19 hours ago) <dye784>
+1f84863 - (origin/babelWarning, babelWarning) fix: remove babel depreication warning (20 hours ago) <dye784>
+7ee6c14 - (origin/reduxTests, reduxTests) fix: remove .only (20 hours ago) <dye784>
+1c17a6f - feat: add sidebar reducer tests (20 hours ago) <dye784>
+5d756db - feat: add new message reducer tests and remove unused vars in chat reducer test (20 hours ago) <dye784>
+e5af345 - feat: add tests for chat reducer (20 hours ago) <dye784>
+deaa0cc - feat: complete sidebar action creator tests (20 hours ago) <dye784>
+219b282 - fix: removed .only (20 hours ago) <dye784>
+9ce1f3b - feat: add new message action creator tests (21 hours ago) <dye784>
+193a64e - feat: add chat action creator tests (21 hours ago) <dye784>
+27e0842 - (origin/fixUserTests, fixUserTests) fix: user routes and model tests after adjusting (21 hours ago) <dye784>
+c251252 - (origin/newMessageRoute, newMessageRoute) refactor: newMessages state into own reducer, adjust chat for changes, routes more restful (24 hours ago) <dye784>
+1f7896c - fix: routes on refresh (24 hours ago) <dye784>
+2e8018d - fix: absolute path for files (24 hours ago) <dye784>
+a32ee1e - fix: adjust react router and routes to be more restful (25 hours ago) <dye784>
+3887f18 - feat: gets new messages for all channels (26 hours ago) <dye784>
+9f10c4d - feat: update user last log out on log out (27 hours ago) <dye784>
+5db9816 - feat: new message action creators and add button on chat (27 hours ago) <dye784>
+95a08bb - Merge branch 'master' of https://github.com/dye784/Chat-App into newMessageRoute (2 days ago) <dye784>
+03e7388 - (origin/displayUsernames, displayUsernames) fix: add message with username (2 days ago) <dye784>
+e4c8ff3 - feat: add username to message (2 days ago) <dye784>
+9578e78 - fix: associations correct without alias (2 days ago) <dye784>
+f482e15 - feat: display usernames (2 days ago) <dye784>
+19f7fa1 - feat: add column to model to use for new messages (2 days ago) <dye784>
+ee5fa9a - feat: add route for getting new messages (2 days ago) <dye784>
+1418a8f - (origin/modelRework, modelRework) fix: add own id to message (2 days ago) <dye784>
+1d67950 - refactor: front end auth refactored to use username (2 days ago) <dye784>
+5b442d0 - refactor: change user model and associations (2 days ago) <dye784>
+cbfe4ed - (origin/errorHandling, errorHandling) fix: remove error console logs for in favor of react logs (2 days ago) <dye784>
+2744b2d - (origin/appArchitectureRefactor, appArchitectureRefactor) chore: unused var (2 days ago) <dye784>
+02f569a - refactor: change app architecture to create message on socket instead of http, use socket to dispatch from store as well instead of thunk (2 days ago) <dye784>
+2293787 - (origin/testFixChatroom, testFixChatroom) fix: test for message post (3 days ago) <dye784>
+c04a563 - (origin/chatroomSocket, chatroomSocket) feat: send message to chatroom only, refactor to join and leave rooms on store dispatches (3 days ago) <dye784>
+b47d5a2 - (origin/socketTwo, socketTwo) fix: local state on chat to remove input on submit (3 days ago) <dye784>
+ed7f79d - feat: working sockets for two people in a specific channel (3 days ago) <dye784>
+f57d189 - (origin/conditionalRenderSidebarAndChat, conditionalRenderSidebarAndChat) feat: only show sidebar and chat when user signed in (3 days ago) <dye784>
+01296d7 - (origin/seedUser, seedUser) feat: add example user and sign in instructions (3 days ago) <dye784>
+f6dda81 - (origin/seedGeneralchannel, seedGeneralchannel) feat: add general channel and readme description of seeding directions (3 days ago) <dye784>
+b79b16b - (origin/messageFix, urlNameChange, messageFix) fix: default to first chatroom route, display message.content (3 days ago) <dye784>
+9b4e7fa - (origin/seedRandomData, seedRandomData) feat: create seed file and seed script (3 days ago) <dye784>
+a6345a5 - (origin/dumbComponentRefactor, dumbComponentRefactor) refactor: add implicit return to dumb components, add trailing comma to webpack config, add yarn lock file (3 days ago) <dye784>
+8b29940 - (origin/appReducerRm, appReducerRm) refactor: app and index js to jsx, remove app reducer (3 days ago) <dye784>
+ea79ef3 - (origin/sideBarLinkRefactor, sideBarLinkRefactor) chore: change app file from js to jsx (3 days ago) <dye784>
+eca7ae6 - refactor: use react router to control chatroom state instead of redux (3 days ago) <dye784>
+91ff31b - (origin/sendMessageChat, sendMessageChat) fix: reducer default selected chatroom set to 1, chat add input onsubmit (3 days ago) <dye784>
+3c5a76c - (origin/sideBar, sideBar) feat: add sidebar component and container, maps chatrooms (3 days ago) <dye784>
+1ad0f50 - feat: add sidebar component, add sidebar reducer, add sidebar action creators (3 days ago) <dye784>
+2c1b5a3 - (origin/chatInputArea, chatInputArea) feat: wire up chat into app and add text input area (3 days ago) <dye784>
+91cda81 - feat: wire up chat into app and add text input area (3 days ago) <dye784>
+3ded323 - (origin/catchFix, catchFix) fix: add catch to thunks to console.error meaningful error (3 days ago) <dye784>
+7719a73 - (origin/chatSetUp, chatSetUp) Merge branch 'master' of https://github.com/dye784/Chat-App into chatSetUp (3 days ago) <dye784>
+efa8f91 - feat: connected chat reducer (3 days ago) <dye784>
+9b039b2 - feat: add chat reducer (3 days ago) <dye784>
+0c7e557 - feat: add chat action creators sync and async (3 days ago) <dye784>
+332048b - feat: add Chat component and container wireframe (3 days ago) <dye784>
+7ad7ec1 - Merge pull request #22 from dye784/socketInit (3 days ago) <Damon Ye>
+ad6d0ec - (origin/socketInit, socketInit) fix: change socket setup to require from another file (3 days ago) <dye784>
+2a0f4a5 - feat: create function to attach event listeners, add simple event to test, add docs (3 days ago) <dye784>
+8732bec - feat: complete initial setup for sockets (4 days ago) <dye784>
+6c1518b - (LoginTest) Merge pull request #21 from dye784/LogoutComponent (4 days ago) <Damon Ye>
+d73e47a - (origin/LogoutComponent, LogoutComponent) feat: add fetch logged in user using sessions, add fetchLoggedInUser ajax request (4 days ago) <dye784>
+6e28f5e - feat: conditional render complete for login and logout (4 days ago) <dye784>
+989bd10 - feat: conditional render complete for login and logout (4 days ago) <dye784>
+94b3248 - Merge pull request #20 from dye784/styleFix (4 days ago) <Damon Ye>
+bf7750c - (origin/styleFix, styleFix) style: index test (4 days ago) <dye784>
+749795d - Merge pull request #19 from dye784/toJsonTest (4 days ago) <Damon Ye>
+0981e00 - feat: complete toJson tests (4 days ago) <dye784>
+1db2cc7 - Merge pull request #18 from dye784/secureUserData (4 days ago) <Damon Ye>
+20862cf - (origin/secureUserData, secureUserData) feat: add toJson instance method to user model, invoke on post to login (4 days ago) <dye784>
+48e661a - Merge pull request #17 from dye784/logoutSignInRedux (4 days ago) <Damon Ye>
+257b63a - (origin/logoutSignInRedux, logoutSignInRedux) feat: complete login component and login redux integration, correct backend login route, connect login component to app (4 days ago) <dye784>
+9b8bf74 - Merge pull request #16 from dye784/logoutSignInRedux (4 days ago) <Damon Ye>
+9239550 - feat: complete thunk logOut (4 days ago) <dye784>
+8299e5b - Merge pull request #15 from dye784/loginRedux (4 days ago) <Damon Ye>
+69a0900 - (origin/loginRedux, loginRedux) chore: change describe block (4 days ago) <dye784>
+96011c0 - feat: add login thunk (4 days ago) <dye784>
+31c48e3 - Merge pull request #14 from dye784/loginRedux (4 days ago) <Damon Ye>
+12b5209 - feat: connect reducer, add tests for reducer (4 days ago) <dye784>
+034957d - feat: add LoginActionCreator tests, .babelrc file, compile for test script (4 days ago) <dye784>
+b4f1a8d - feat: LoginReducer complete (4 days ago) <dye784>
+5899c30 - feat: complete LoginActionCreator (4 days ago) <dye784>
+e8f5be8 - chore: remove react folder (4 days ago) <dye784>
+de51e4b - Merge pull request #13 from dye784/readme (4 days ago) <Damon Ye>
+4bced7a - (origin/readme, readme) docs: add readme (4 days ago) <dye784>
+b54a4f6 - Merge pull request #12 from dye784/addMessage (5 days ago) <Damon Ye>
+24a9528 - (origin/addMessage, addMessage) chore: uncomment afterEach in test, change before back to beforeEach (5 days ago) <dye784>
+6fc3239 - feat: add post unit tests and fix post message route (5 days ago) <dye784>
+7aca071 - refactor: make post message route, change chatroom into more describe blocks (5 days ago) <dye784>
+99e3203 - Merge pull request #11 from dye784/chatroomChore (5 days ago) <Damon Ye>
+d30d9a5 - (origin/chatroomChore, chatroomChore) style: add semi (5 days ago) <dye784>
+fbca749 - Merge pull request #10 from dye784/chatroomRoutes (5 days ago) <Damon Ye>
+f6f35ef - (origin/chatroomRoutes, chatroomRoutes) feat: add routes and tests for chatroom messages, add conditional server starting in main for testing, modify message model, adjust tests hooks (5 days ago) <dye784>
+ef4694d - Merge pull request #9 from dye784/associationFix (5 days ago) <Damon Ye>
+8bc9230 - (origin/associationFix, associationFix) fix: change description of association to be more accurate (5 days ago) <dye784>
+de7dde9 - Merge pull request #8 from dye784/loginOrCreate (5 days ago) <Damon Ye>
+372c00d - (origin/loginOrCreate, loginOrCreate) feat: create user if user doesnt exist, add unit tests to check (5 days ago) <dye784>
+d573ea2 - Merge pull request #7 from dye784/logOut (5 days ago) <Damon Ye>
+2dc2630 - (origin/logOut, logOut) docs: add comment to logout route (5 days ago) <dye784>
+018312e - feat: logout route complete, unit tests for logout complete (5 days ago) <dye784>
+d691431 - Merge pull request #6 from dye784/localAuth (5 days ago) <Damon Ye>
+224f01d - (origin/localAuth, localAuth) chore: remove unused param err (5 days ago) <dye784>
+6b768bb - feat: remove passport-local, use built in auth instead, add auth tests, complete login post request (5 days ago) <dye784>
+9270244 - feat: set up local auth strategy, post request to local auth (5 days ago) <dye784>
+9a162ca - Merge pull request #5 from dye784/tests (5 days ago) <Damon Ye>
+58f11ee - (origin/tests, tests) feat: user model auth test failing succesfully (5 days ago) <dye784>
+91daf41 - feat: add mocha, chai, test script to package.json, fix user model unqiue value schema, auth test passing properly (5 days ago) <dye784>
+6b28d45 - feat: add mocha, chai, test script to package.json, fix user model unqiue value schema, auth test passing properly (5 days ago) <dye784>
+5037e84 - feat: add before and afterEach for user auth test (5 days ago) <dye784>
+85b2118 - chore: add scaffolding of tests for user authetntication (5 days ago) <dye784>
+b2f31cf - Merge pull request #4 from dye784/passwordEncrypt (6 days ago) <Damon Ye>
+0812f8d - (origin/passwordEncrypt, passwordEncrypt) feat: add defaultScope to exclude hashed password (6 days ago) <dye784>
+caad891 - feat: add unique in validate for user (6 days ago) <dye784>
+2216d4e - feat: instance method authenticate to check passwords (6 days ago) <dye784>
+66401d4 - feat: add hooks beforeCreate and beforeUpdate to model, changed setEmailAndPassword function to const and moved above model (6 days ago) <dye784>
+a82bb81 - feat: add bcryptjs, password to model, function to set email and hash password (6 days ago) <dye784>
+ab36043 - Merge pull request #3 from dye784/auth (6 days ago) <Damon Ye>
+8255b10 - Merge pull request #2 from dye784/postgresDeploy (6 days ago) <Damon Ye>
+bcbc399 - (origin/auth, auth) feat: boilerplate passport setup, add GET route for self (6 days ago) <dye784>
+10d9216 - feat: add passport and session, setup boilerplate, add comments to middleware (6 days ago) <dye784>
+b8545ac - (origin/postgresDeploy, postgresDeploy) fix: read database url from environment for deployment, timestamp true" (6 days ago) <dye784>
+c027d00 - Merge pull request #1 from dye784/modelsInit (6 days ago) <Damon Ye>
+5d6abf0 - (origin/modelsInit, modelsInit) feat: add chatroom model (6 days ago) <dye784>
+4788875 - fix: remove Model file (6 days ago) <dye784>
+c6e1d65 - feat: add associations (6 days ago) <dye784>
+70ca6fd - feat: add message model (6 days ago) <dye784>
+3a9b808 - feat: user model without password and hashing (6 days ago) <dye784>
+dc8b093 - initial commit (6 days ago) <dye784>
