@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { postNewMessageToServer, addNewMessageForChatroom } from './ChatActionCreators';
-import { socket } from '../store';
 
 export class Chat extends Component {
   constructor(props) {
