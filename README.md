@@ -2,7 +2,7 @@
 
 ### Introduction
 Hello, My name is Damon Ye and this is a Chat App I built!
-The app is built using React, Redux, Node, Express, Sequelize, Postgres, and Socket.io. Testing is done with mocha, chai, and supertest.
+The app is built using React, Redux, Node, Express, Sequelize, Postgres, and Socket.io. Testing is done with Mocha, Chai, SuperTest, and Enzyme.
 
 ### Installation
 **Fork** and **clone** this repository.
@@ -50,12 +50,11 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 
 ### Features to Add
 1. Send only a few messages and allow scrolling to send queries to retreive more messages.
-2. Enzyme tests.
-3. Redux Thunk tests.
-4. Socket.io tests.
-5. Display new messages for each channel.
-6. Auto scroll to bottom on new message.
-7. Put time stamps some place.
+2. Redux Thunk tests.
+3. Socket.io tests.
+4. Display new messages for each channel.
+5. Auto scroll to bottom on new message.
+6. Put time stamps some place.
 
 ### Current Concerns
 For the mvp, I designed it so it serves up all the messages for all the chatrooms. The next stage was to design it to be more scalable. Initially I wanted to design it so that on the initial request to the server, the server sends back the first 20 or so messages for each chatroom. When a user scrolls up past the first 20 messages it would then send a request to the server to retrieve the next 20 or so messages for that specific channel. One of the main blockers for this was figuring out how to tract scrolling using React. Unfortunately I could not figure that part out. So I did not move forward with the scalability optimization.
