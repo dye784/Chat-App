@@ -1,4 +1,5 @@
 ## Chat App
+[![Build Status](https://travis-ci.org/dye784/Chat-App.svg?branch=master)](https://travis-ci.org/dye784/Chat-App)
 
 ### Introduction
 Hello, My name is Damon Ye and this is a Chat App I built!
