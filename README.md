@@ -7,7 +7,7 @@ The app is built using React, Redux, Node, Express, Sequelize, Postgres, and Soc
 ### Installation
 **Fork** and **clone** this repository.
 
-Then insall the dependencies
+Then install the dependencies
 
 ```
 npm install
