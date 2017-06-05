@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register --watch-extensions js,jsx tests/**/**/*.test.js tests/**/**/*.test.jsx",
     "start": "nodemon --watch server -e js,html server/app/main.js",
-    "build": "webpack --watch",
+    "build-watch": "webpack --watch",
+    "build": "webpack",
     "db-init": "pg-init chatdb",
     "seed": "node seed.js"
   },
