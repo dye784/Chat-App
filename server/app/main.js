@@ -9,8 +9,7 @@ const app = express();
 const routes = require('./routes');
 const db = require('../model');
 
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 1337;
+const port = process.env.PORT || 1337;
 
 // Socket setup
 const socketio = require('socket.io');
@@ -22,7 +21,7 @@ const socketEvents = require('./sockets');
 socketEvents(io);
 
 // Logging Middleware
-if (!isProduction) { app.use(morgan('dev')); }
+if (port === 1337) { app.use(morgan('dev')); }
 
 // Server up static files from '../../public'
 app.use(express.static(path.join(__dirname, '..', '..', 'public')));
