@@ -56,13 +56,9 @@ app.use('/api', routes);
 // Sync database then start listening if we are running the file directly
 // Needed to remove errors during http testing
 if (module === require.main) {
-  db.sync()
-  .then(() => {
-    console.log('----- Database is Synced! -----');
-    server.listen(port, () => {
-      console.log('----- HTTP Server Started! -----');
-      console.log(`Server is listening on port ${port}`);
-    });
+  server.listen(port, () => {
+    console.log('----- HTTP Server Started! -----');
+    console.log(`Server is listening on port ${port}`);
   });
 }
 
