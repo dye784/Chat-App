@@ -10,8 +10,11 @@
     "db-init": "pg-init chatdb",
     "seed": "node seed.js"
   },
-  "author": "Damon",
-  "license": "ISC",
+  "engines": {
+    "node": ">= 7.0.0"
+  },
+  "author": "Damon Ye",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
     "babel": "^6.5.2",
