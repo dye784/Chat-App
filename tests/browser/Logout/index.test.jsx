@@ -8,7 +8,7 @@ import chaiEnzyme from 'chai-enzyme';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 chai.use(sinonChai);
-import LogoutContainer, { Logout } from '../../../browser/Logout/index.jsx';
+import LogoutContainer, { Logout } from '../../../browser/Logout';
 chai.use(chaiEnzyme());
 
 describe('<Logout />', () => {

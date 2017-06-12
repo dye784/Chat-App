@@ -8,7 +8,7 @@ import chaiEnzyme from 'chai-enzyme';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 chai.use(sinonChai);
-import ChatContainer, { Chat } from '../../../browser/Chat/index.jsx';
+import ChatContainer, { Chat } from '../../../browser/Chat';
 chai.use(chaiEnzyme());
 
 describe('<Chat />', () => {

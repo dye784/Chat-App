@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import NewMessagesContainer, { NewMessages } from '../../../browser/NewMessages/index.jsx';
+import NewMessagesContainer, { NewMessages } from '../../../browser/NewMessages';
 chai.use(chaiEnzyme());
 
 describe('<NewMessages />', () => {

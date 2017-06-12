@@ -9,8 +9,7 @@ const app = express();
 const routes = require('./routes');
 const db = require('../model');
 
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 1337;
+const port = process.env.PORT || 1337;
 
 // Socket setup
 const socketio = require('socket.io');
@@ -22,7 +21,7 @@ const socketEvents = require('./sockets');
 socketEvents(io);
 
 // Logging Middleware
-if (!isProduction) { app.use(morgan('dev')); }
+if (port === 1337) { app.use(morgan('dev')); }
 
 // Server up static files from '../../public'
 app.use(express.static(path.join(__dirname, '..', '..', 'public')));
@@ -57,13 +56,9 @@ app.use('/api', routes);
 // Sync database then start listening if we are running the file directly
 // Needed to remove errors during http testing
 if (module === require.main) {
-  db.sync()
-  .then(() => {
-    console.log('----- Database is Synced! -----');
-    server.listen(port, () => {
-      console.log('----- HTTP Server Started! -----');
-      console.log(`Server is listening on port ${port}`);
-    });
+  server.listen(port, () => {
+    console.log('----- HTTP Server Started! -----');
+    console.log(`Server is listening on port ${port}`);
   });
 }
 

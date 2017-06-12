@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import { Link } from 'react-router';
-import SidebarContainer, { Sidebar } from '../../../browser/Sidebar/index.jsx';
+import SidebarContainer, { Sidebar } from '../../../browser/Sidebar';
 chai.use(chaiEnzyme());
 
 describe('<Sidebar />', () => {
