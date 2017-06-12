@@ -5,9 +5,9 @@ import { fetchLoggedInUser } from './Login/LoginActionCreator';
 import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import { fetchAllMessagesForChatroom } from './Chat/ChatActionCreators';
 import { fetchNewMessages } from './NewMessages/NewMessagesActionCreators';
-import App from './App/index.jsx';
-import Chat from './Chat/index.jsx';
-import NewMessages from './NewMessages/index.jsx';
+import App from './App';
+import Chat from './Chat';
+import NewMessages from './NewMessages';
 
 const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom, fetchNewMessages }) => (
   <Router history={browserHistory}>

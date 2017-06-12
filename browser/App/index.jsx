@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Login from '../Login/index.jsx';
-import Logout from '../Logout/index.jsx';
-import Chat from '../Chat/index.jsx';
-import Sidebar from '../Sidebar/index.jsx';
+import Login from '../Login';
+import Logout from '../Logout';
+import Chat from '../Chat';
+import Sidebar from '../Sidebar';
 import { socket } from '../store';
 
 export class App extends Component {
