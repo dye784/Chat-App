@@ -40,7 +40,7 @@ export class Chat extends Component {
           content: e.target.result,
           user: {
             userId,
-            username: 'test',
+            username,
           },
           chatroomId
         });
