@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { postNewMessageToServer, addNewMessageForChatroom, addNewMessage, ADD_NEW_MESSAGE, addNewImageForChatroom } from './ChatActionCreators';
-import { getAllMessages } from './ChatReducer';
+import { getAllMessages, getMessagesChatroomName } from './ChatReducer';
 import { getUserId, getUsername } from '../Login/LoginReducer';
 
 export class Chat extends Component {
@@ -47,11 +47,11 @@ export class Chat extends Component {
   }
 
   render() {
-    const { messages, chatroomId, userId } = this.props
+    const { messages, chatroomId, userId, chatroomName } = this.props
     return (
       <div className="container-chatbox">
         <div>
-          <h2 className="chatroom-title">{messages[0] && `#${messages[0].chatroom.name}`}</h2>
+          <h2 className="chatroom-title">{`#${chatroomName}`}</h2>
           <hr />
         </div>
         <div className="container-chat-history">
@@ -68,7 +68,7 @@ export class Chat extends Component {
         <div className="container-message-form">
           <input type="file" ref="upload" name="file" onChange={this.onAddFile} />
           <form className="message-form" onSubmit={this.onSubmit}>
-            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${messages[0] && messages[0].chatroom.name}`}/>
+            <input className="message-text-area" onChange={this.handleChange} value={this.state.message} name="message" placeholder={`Message #${chatroomName}`}/>
            </form>
         </div>
       </div>
@@ -78,6 +78,7 @@ export class Chat extends Component {
 
 const mapStateToProps = (state, { params }) => ({
   messages: getAllMessages(state),
+  chatroomName: getMessagesChatroomName(state),
   chatroomId: params.chatroomId,
   userId: getUserId(state),
   username: getUsername(state),
