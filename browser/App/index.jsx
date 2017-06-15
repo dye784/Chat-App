@@ -5,6 +5,7 @@ import Logout from '../Logout';
 import Chat from '../Chat';
 import Sidebar from '../Sidebar';
 import { socket } from '../store';
+import { getUser } from '../Login/LoginReducer';
 
 export class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -30,6 +31,6 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ user: state.auth });
+const mapStateToProps = (state) => ({ user: getUser(state) });
 
 export default connect(mapStateToProps)(App);
