@@ -12,3 +12,5 @@ const reducer = (state = [], action) => {
 };
 
 export default reducer;
+
+export const getAllMessages = (state) => state.messages;
