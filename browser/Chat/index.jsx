@@ -64,7 +64,7 @@ export class Chat extends Component {
         </div>
         <div className="container-chat-history">
           {messages.map((message, idx) => (
-            <div ref={(ref) => {
+            <div className="message-content-container" ref={(ref) => {
               if (idx === messages.length - 1) {this.chatBottomRef = ref;}}} key={`${message.user.userId}-${chatroomId}-${idx}`}>
               <div className="message-content-header">
                 {message.user.username}
