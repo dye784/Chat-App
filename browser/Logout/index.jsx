@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../Login/LoginActionCreator';
+import { getUser } from '../Login/LoginReducer';
 
 export const Logout = ({ user, logout }) => (
   <div>
@@ -10,7 +11,7 @@ export const Logout = ({ user, logout }) => (
   </div>
 );
 
-const mapStateToProps = (state) => ({ user: state.auth });
+const mapStateToProps = (state) => ({ user: getUser(state) });
 
 const mapDispatchToProps = { logout };
 
