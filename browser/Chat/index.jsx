@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { postNewMessageToServer, addNewMessageForChatroom, addNewMessage, ADD_NEW_MESSAGE, addNewImageForChatroom } from './ChatActionCreators';
 import { getAllMessages, getMessagesChatroomName } from './ChatReducer';
 import { getUserId, getUsername } from '../Login/LoginReducer';
+import { array, string, func, number } from 'prop-types';
 
 export class Chat extends Component {
   constructor(props) {
@@ -75,6 +76,16 @@ export class Chat extends Component {
     );
   }
 }
+
+Chat.propTypes = {
+  messages: array.isRequired,
+  chatroomName: string,
+  chatroomId: string.isRequired,
+  userId: number.isRequired,
+  username: string.isRequired,
+  addNewMessageForChatroom: func.isRequired,
+  addNewImageForChatroom: func.isRequired,
+};
 
 const mapStateToProps = (state, { params }) => ({
   messages: getAllMessages(state),
