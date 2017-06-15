@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { func, object } from 'prop-types';
+
 import { logout } from '../Login/LoginActionCreator';
 import { getUser } from '../Login/LoginReducer';
 
@@ -10,6 +12,11 @@ export const Logout = ({ user, logout }) => (
     <hr />
   </div>
 );
+
+Logout.propTypes = {
+  logout: func.isRequired,
+  user: object,
+};
 
 const mapStateToProps = (state) => ({ user: getUser(state) });
 

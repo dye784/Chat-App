@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { array } from 'prop-types';
+
 import { getNewMessages } from './NewMessagesReducer';
 
 export const NewMessages = ({ newMessages }) => {
@@ -18,6 +20,10 @@ export const NewMessages = ({ newMessages }) => {
       <hr />
     </div>
   );
+};
+
+NewMessages.propTypes = {
+  newMessages: array.isRequired,
 };
 
 const mapStateToProps = (state) => ({ newMessages: getNewMessages(state) });

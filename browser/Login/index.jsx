@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { func } from 'prop-types';
+
 import { login } from './LoginActionCreator';
 
 export const Login = ({ login }) => {
@@ -17,6 +19,10 @@ export const Login = ({ login }) => {
       </form>
     </div>
   );
+};
+
+Login.propTypes = {
+  login: func.isRequired,
 };
 
 const mapDispatchToProps = { login };

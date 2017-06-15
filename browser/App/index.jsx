@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
+
 import Login from '../Login';
 import Logout from '../Logout';
 import Chat from '../Chat';
@@ -30,6 +32,12 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  user: object,
+  children: object,
+  params: object,
+};
 
 const mapStateToProps = (state) => ({ user: getUser(state) });
 

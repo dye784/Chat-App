@@ -34,7 +34,6 @@ describe('<Sidebar />', () => {
 describe('<SidebarContainer />', () => {
   const state = {
     chatrooms: ['general', 'rando'],
-    auth: { username: 'example' },
   };
   let root;
   let store;
@@ -45,10 +44,6 @@ describe('<SidebarContainer />', () => {
 
   it('gets props.chatrooms from state.chatrooms', () => {
     expect(root.find(Sidebar)).to.have.prop('chatrooms');
-  });
-
-  it('get props.auth from state.auth', () => {
-    expect(root.find(Sidebar)).to.have.prop('auth');
   });
 });
 
