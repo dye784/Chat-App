@@ -54,7 +54,7 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 2. Redux Thunk tests.
 3. Socket.io tests.
 4. Display new messages for each channel.
-5. Auto scroll to bottom on new message.
+5. Auto scroll to bottom on new message. (Complete)
 6. Put time stamps some place.
 
 ### Current Concerns
