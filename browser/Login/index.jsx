@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from './LoginActionCreator';
 import { func } from 'prop-types';
+
+import { login } from './LoginActionCreator';
 
 export const Login = ({ login }) => {
   const handleSubmit = (evt) => {

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
+
 import Login from '../Login';
 import Logout from '../Logout';
 import Chat from '../Chat';
 import Sidebar from '../Sidebar';
 import { socket } from '../store';
 import { getUser } from '../Login/LoginReducer';
-import { object } from 'prop-types';
 
 export class App extends Component {
   componentWillReceiveProps(nextProps) {

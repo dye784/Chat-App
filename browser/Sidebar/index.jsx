@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { array } from 'prop-types';
+
 import Logout from '../Logout';
 import { getAllChatrooms } from './SidebarReducer';
-import { array, object } from 'prop-types';
 
 const linkStyle = { textDecoration: 'none' };
 

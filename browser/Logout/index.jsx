@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { func, object } from 'prop-types';
+
 import { logout } from '../Login/LoginActionCreator';
 import { getUser } from '../Login/LoginReducer';
-import { func, object } from 'prop-types';
 
 export const Logout = ({ user, logout }) => (
   <div>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { array, string, func, number } from 'prop-types';
+
 import { postNewMessageToServer, addNewMessageForChatroom, addNewMessage, ADD_NEW_MESSAGE, addNewImageForChatroom } from './ChatActionCreators';
 import { getAllMessages, getMessagesChatroomName } from './ChatReducer';
 import { getUserId, getUsername } from '../Login/LoginReducer';
-import { array, string, func, number } from 'prop-types';
 
 export class Chat extends Component {
   constructor(props) {

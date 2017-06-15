@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNewMessages } from './NewMessagesReducer';
 import { array } from 'prop-types';
+
+import { getNewMessages } from './NewMessagesReducer';
 
 export const NewMessages = ({ newMessages }) => {
   return (
