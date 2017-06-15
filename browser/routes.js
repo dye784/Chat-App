@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
+import { func } from 'prop-types';
+
 import { fetchLoggedInUser } from './Login/LoginActionCreator';
 import { fetchAllChatrooms } from './Sidebar/SidebarActionCreators';
 import { fetchAllMessagesForChatroom } from './Chat/ChatActionCreators';
@@ -17,6 +19,12 @@ const Routes = ({ fetchInitialData, fetchAllMessagesForChatroom, fetchNewMessage
     </Route>
   </Router>
 );
+
+Routes.propTypes = {
+  fetchInitialData: func.isRequired,
+  fetchAllMessagesForChatroom: func.isRequired,
+  fetchNewMessages: func.isRequired,
+};
 
 const mapStateToProps = null;
 
