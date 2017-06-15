@@ -25,6 +25,7 @@ const User = db.define('users', {
   },
   password_digest: STRING,
   password: VIRTUAL,
+  avatar: STRING,
   last_logout: DATE,
 }, {
   hooks: {
@@ -52,6 +53,7 @@ const User = db.define('users', {
         createdAt: this.createdAt,
         id: this.id,
         updatedAt: this.updatedAt,
+        avatar: this.avatar,
       };
     },
   },
