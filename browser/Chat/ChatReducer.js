@@ -14,3 +14,5 @@ const reducer = (state = [], action) => {
 export default reducer;
 
 export const getAllMessages = (state) => state.messages;
+
+export const getMessagesChatroomName = (state) => state.messages[0] && state.messages[0].chatroom.name;
