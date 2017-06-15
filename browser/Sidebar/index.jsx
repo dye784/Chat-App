@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Logout from '../Logout';
 import { getAllChatrooms } from './SidebarReducer';
-import { getUser } from '../Login/LoginReducer';
 import { array, object } from 'prop-types';
 
 const linkStyle = { textDecoration: 'none' };
 
-export const Sidebar = ({ chatrooms, auth }) => (
+export const Sidebar = ({ chatrooms }) => (
   <div className="container-sidebar">
     <div>
       <Logout />
@@ -32,12 +31,10 @@ export const Sidebar = ({ chatrooms, auth }) => (
 
 Sidebar.propTypes = {
   chatrooms: array.isRequired,
-  auth: object,
 };
 
 const mapStateToProps = (state) => ({
   chatrooms: getAllChatrooms(state),
-  auth: getUser(state),
 });
 
 export default connect(mapStateToProps)(Sidebar);
