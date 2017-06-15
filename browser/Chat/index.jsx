@@ -23,12 +23,10 @@ export class Chat extends Component {
     }
   }
 
-  // bit 64 format for file- enconded
   onAddFile = (evt) => {
     const { userId, chatroomId, addNewMessageForChatroom, username } = this.props;
     const file = evt.target.files[0];
-
-    var reader = new FileReader();
+    const reader = new FileReader();
 
     reader.addEventListener("load", () => {
       this.props.addNewImageForChatroom({
@@ -42,7 +40,7 @@ export class Chat extends Component {
     }, false);
 
     reader.readAsDataURL(file);
-
+    evt.target.value = null;
     this.setState({ message: '' });
   }
 
