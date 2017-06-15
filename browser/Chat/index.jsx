@@ -13,6 +13,12 @@ export class Chat extends Component {
     this.state = { message: '' }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.messages.length > prevProps.messages.length) {
+      this.chatBottomRef.scrollIntoView();
+    }
+  }
+
   handleChange = (evt) => {
     this.setState({ message: evt.target.value });
   }
@@ -58,7 +64,8 @@ export class Chat extends Component {
         </div>
         <div className="container-chat-history">
           {messages.map((message, idx) => (
-            <div key={`${message.user.userId}-${chatroomId}-${idx}`}>
+            <div ref={(ref) => {
+              if (idx === messages.length - 1) {this.chatBottomRef = ref;}}} key={`${message.user.userId}-${chatroomId}-${idx}`}>
               <div className="message-content-header">
                 {message.user.username}
               </div>
