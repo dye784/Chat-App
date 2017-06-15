@@ -28,24 +28,18 @@ export class Chat extends Component {
     const { userId, chatroomId, addNewMessageForChatroom, username } = this.props;
     const file = evt.target.files[0];
 
-    const img = document.createElement("img");
-    img.classList.add("obj");
-    img.file = file;
-
     var reader = new FileReader();
-    reader.onload = ((aImg) => {
-      return (e) => {
-        aImg.src = e.target.result;
-        this.props.addNewImageForChatroom({
-          content: e.target.result,
-          user: {
-            userId,
-            username,
-          },
-          chatroomId
-        });
-      };
-    })(img);
+
+    reader.addEventListener("load", () => {
+      this.props.addNewImageForChatroom({
+        content: reader.result,
+        user: {
+          userId,
+          username,
+        },
+        chatroomId,
+      });
+    }, false);
 
     reader.readAsDataURL(file);
 
