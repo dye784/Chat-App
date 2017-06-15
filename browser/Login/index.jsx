@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from './LoginActionCreator';
+import { func } from 'prop-types';
 
 export const Login = ({ login }) => {
   const handleSubmit = (evt) => {
@@ -17,6 +18,10 @@ export const Login = ({ login }) => {
       </form>
     </div>
   );
+};
+
+Login.propTypes = {
+  login: func.isRequired,
 };
 
 const mapDispatchToProps = { login };
