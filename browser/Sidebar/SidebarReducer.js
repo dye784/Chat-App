@@ -10,3 +10,5 @@ const reducer = (state = [], action) => {
 };
 
 export default reducer;
+
+export const getAllChatrooms = (state) => state.chatrooms;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getNewMessages } from './NewMessagesReducer';
 
 export const NewMessages = ({ newMessages }) => {
   return (
@@ -19,7 +20,7 @@ export const NewMessages = ({ newMessages }) => {
   );
 };
 
-const mapStateToProps = ({ newMessages }) => ({ newMessages });
+const mapStateToProps = (state) => ({ newMessages: getNewMessages(state) });
 
 const mapDispatchToProps = {};
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Logout from '../Logout';
+import { getAllChatrooms } from './SidebarReducer';
+import { getUser } from '../Login/LoginReducer';
 
 const linkStyle = { textDecoration: 'none' };
 
@@ -27,6 +29,9 @@ export const Sidebar = ({ chatrooms, auth }) => (
   </div>
 );
 
-const mapStateToProps = ({ chatrooms, auth }) => ({ chatrooms, auth });
+const mapStateToProps = (state) => ({
+  chatrooms: getAllChatrooms(state),
+  auth: getUser(state),
+});
 
 export default connect(mapStateToProps)(Sidebar);

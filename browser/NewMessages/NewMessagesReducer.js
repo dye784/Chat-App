@@ -10,3 +10,5 @@ const reducer = (state = [], action) => {
 };
 
 export default reducer;
+
+export const getNewMessages = (state) => state.newMessages;
