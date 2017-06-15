@@ -22,7 +22,7 @@ router.get('/messages/new', (req, res, next) => {
       },
     },
     include: [
-      { model: User, attributes: ['username'] },
+      { model: User, attributes: ['username', 'avatar'] },
       { model: Chatroom, attributes: ['name'] },
     ],
     order: [
@@ -42,7 +42,7 @@ router.get('/:chatroomId/messages', (req, res, next) => {
       chatroomId: req.params.chatroomId,
     },
     include: [
-      { model: User, attributes: ['username'] },
+      { model: User, attributes: ['username', 'avatar'] },
       { model: Chatroom, attributes: ['name'] },
     ],
     order: [

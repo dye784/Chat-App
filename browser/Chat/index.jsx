@@ -66,11 +66,16 @@ export class Chat extends Component {
           {messages.map((message, idx) => (
             <div className="message-content-container" ref={(ref) => {
               if (idx === messages.length - 1) {this.chatBottomRef = ref;}}} key={`${message.user.userId}-${chatroomId}-${idx}`}>
-              <div className="message-content-header">
-                {message.user.username}
+              <div className="message-content-item-image">
+                <img className="message-user-image" src={message.user.avatar}/>
               </div>
-              {message.type === 'img' && <img src={message.content}/>}
-              {message.type === 'message' && <div className="chat-message">{message.content}</div>}
+              <div className="message-content-item-text">
+                <div className="message-content-header">
+                {message.user.username}
+                </div>
+                {message.type === 'img' && <img src={message.content}/>}
+                {message.type === 'message' && <div className="chat-message">{message.content}</div>}
+              </div>
             </div>
           ))}
         </div>

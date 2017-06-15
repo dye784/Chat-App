@@ -36,6 +36,7 @@ const randomFakeUser = () => {
     username: faker.internet.userName(),
     password: faker.internet.password(),
     lastLogout: Date.now(),
+    avatar: faker.image.avatar(),
   });
 };
 
@@ -44,6 +45,7 @@ const createFakeUser = () => {
     username: 'example',
     password: '12345',
     lastLogout: Date.now(),
+    avatar: faker.image.avatar(),
   });
   const arrOfUsersToBeSaved = [
     testUser,

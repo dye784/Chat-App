@@ -48,7 +48,7 @@ router.post('/login', (req, res, next) => {
           } else {
             req.logIn(foundUser, (err) => {
               if (err) { return next(err); }
-              res.send(foundUser);
+              res.send(foundUser.toJson());
             });
           }
         });
