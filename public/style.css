@@ -28,6 +28,11 @@ body {
   padding-left: 2%;
 }
 
+.message-user-image {
+  height: 36px;
+  width: 36px;
+}
+
 .message-form {
   display: flex;
   border: 2px solid #bbbdbf;
@@ -52,6 +57,20 @@ body {
 
 .message-content-container {
   padding-left: 3%;
+  display: flex;
+  padding: 4px;
+}
+
+.message-content-item-image {
+  padding-right: 10px;
+  padding-left: 30px;
+  flex-direction: row;
+  text-align: right;
+}
+
+.message-content-item-text {
+  flex-direction: row;
+  text-align: left;
 }
 
 .message-content-container:hover {
