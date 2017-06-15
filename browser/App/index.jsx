@@ -6,6 +6,7 @@ import Chat from '../Chat';
 import Sidebar from '../Sidebar';
 import { socket } from '../store';
 import { getUser } from '../Login/LoginReducer';
+import { object } from 'prop-types';
 
 export class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -30,6 +31,12 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  user: object,
+  children: object,
+  params: object,
+};
 
 const mapStateToProps = (state) => ({ user: getUser(state) });
 
