@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { postNewMessageToServer, addNewMessageForChatroom, addNewMessage, ADD_NEW_MESSAGE, addNewImageForChatroom } from './ChatActionCreators';
+import { getAllMessages } from './ChatReducer';
+import { getUserId, getUsername } from '../Login/LoginReducer';
 
 export class Chat extends Component {
   constructor(props) {
@@ -74,11 +76,11 @@ export class Chat extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, messages }, { params }) => ({
-  messages,
+const mapStateToProps = (state, { params }) => ({
+  messages: getAllMessages(state),
   chatroomId: params.chatroomId,
-  userId: auth.id,
-  username: auth.username,
+  userId: getUserId(state),
+  username: getUsername(state),
 });
 
 const mapDispatchToProps = { addNewMessageForChatroom, addNewImageForChatroom };
