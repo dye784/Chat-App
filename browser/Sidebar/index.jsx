@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import Logout from '../Logout';
 import { getAllChatrooms } from './SidebarReducer';
 import { getUser } from '../Login/LoginReducer';
+import { array, object } from 'prop-types';
 
 const linkStyle = { textDecoration: 'none' };
 
@@ -28,6 +29,11 @@ export const Sidebar = ({ chatrooms, auth }) => (
     </div>
   </div>
 );
+
+Sidebar.propTypes = {
+  chatrooms: array.isRequired,
+  auth: object,
+};
 
 const mapStateToProps = (state) => ({
   chatrooms: getAllChatrooms(state),
