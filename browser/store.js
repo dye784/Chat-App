@@ -10,8 +10,9 @@ const store = createStore(reducer,
 
 export default store;
 
+
 // Connect socket
-export const socket = io(process.env.PORT ? 'https://damons-chat-app.herokuapp.com/' : 'http://localhost:1337/');
+export const socket = io('https://damons-chat-app.herokuapp.com/');
 
 socket.on('connect', () => {
   socket.on('addMessage', (message) => {
