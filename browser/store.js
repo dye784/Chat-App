@@ -11,7 +11,7 @@ const store = createStore(reducer,
 export default store;
 
 // Connect socket
-export const socket = io(process.env.BASE_URL || 'http://localhost:1337');
+export const socket = io('https://damons-chat-app.herokuapp.com/');
 
 socket.on('connect', () => {
   socket.on('addMessage', (message) => {
