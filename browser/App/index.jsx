@@ -34,7 +34,7 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  user: object,
+  user: oneOfType([object, string]),
   children: object,
   params: object,
 };
