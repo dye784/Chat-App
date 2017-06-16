@@ -10,7 +10,6 @@ const store = createStore(reducer,
 
 export default store;
 
-
 // Connect socket
 export const socket = io('https://damons-chat-app.herokuapp.com/');
 

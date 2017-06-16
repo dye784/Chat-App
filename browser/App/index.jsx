@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, oneOfType, string } from 'prop-types';
 
 import Login from '../Login';
 import Logout from '../Logout';
@@ -34,7 +34,7 @@ export class App extends Component {
 }
 
 App.propTypes = {
-  user: object,
+  user: oneOfType([object, string]),
   children: object,
   params: object,
 };
