@@ -54,6 +54,10 @@ export class Chat extends Component {
     this.setState({ message: '' });
   }
 
+  isPreviousUser = (messages, currentMessage, idx) => {
+    return idx > 0 && currentMessage.user.username === messages[idx - 1].user.username
+  }
+
   render() {
     const { messages, chatroomId, userId, chatroomName } = this.props
     return (
@@ -66,13 +70,15 @@ export class Chat extends Component {
           {messages.map((message, idx) => (
             <div className="message-content-container" ref={(ref) => {
               if (idx === messages.length - 1) {this.chatBottomRef = ref;}}} key={`${message.user.userId}-${chatroomId}-${idx}`}>
-              <div className="message-content-item-image">
-                <img className="message-user-image" src={message.user.avatar}/>
-              </div>
+              {!this.isPreviousUser(messages, message, idx) ?
+                <div className="message-content-item-image">
+                  <img className="message-user-image" src={message.user.avatar}/>
+                </div> : <div className="message-content-no-image"></div>}
               <div className="message-content-item-text">
-                <div className="message-content-header">
-                {message.user.username}
-                </div>
+                {!this.isPreviousUser(messages, message, idx) &&
+                  <div className="message-content-header">
+                    {message.user.username}
+                  </div>}
                 {message.type === 'img' && <img src={message.content}/>}
                 {message.type === 'message' && <div className="chat-message">{message.content}</div>}
               </div>

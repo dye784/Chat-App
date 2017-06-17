@@ -69,6 +69,10 @@ body {
   text-align: right;
 }
 
+.message-content-no-image {
+  min-width: 76px;
+}
+
 .message-content-item-text {
   flex-direction: row;
   text-align: left;
