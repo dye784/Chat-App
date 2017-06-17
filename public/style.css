@@ -1,6 +1,6 @@
 html {
   overflow: hidden;
-  font-family: helvetica;
+  font-family: sans-serif;
 }
 
 body {
@@ -53,6 +53,7 @@ body {
   color: #2C2D30;
   font-size: 15px;
   padding-bottom: 3%;
+  line-height: 22px
 }
 
 .message-content-container {
