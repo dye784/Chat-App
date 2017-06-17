@@ -1,6 +1,6 @@
 html {
   overflow: hidden;
-  font-family: helvetica;
+  font-family: sans-serif;
 }
 
 body {
@@ -31,6 +31,7 @@ body {
 .message-user-image {
   height: 36px;
   width: 36px;
+  border-radius: .2rem;
 }
 
 .message-form {
@@ -52,7 +53,7 @@ body {
 .chat-message {
   color: #2C2D30;
   font-size: 15px;
-  padding-bottom: 3%;
+  line-height: 22px
 }
 
 .message-content-container {
@@ -66,6 +67,10 @@ body {
   padding-left: 30px;
   flex-direction: row;
   text-align: right;
+}
+
+.message-content-no-image {
+  min-width: 76px;
 }
 
 .message-content-item-text {

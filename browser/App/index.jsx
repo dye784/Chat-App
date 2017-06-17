@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, oneOfType, string } from 'prop-types';
 
 import Login from '../Login';
 import Logout from '../Logout';
