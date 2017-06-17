@@ -31,6 +31,7 @@ body {
 .message-user-image {
   height: 36px;
   width: 36px;
+  border-radius: .2rem;
 }
 
 .message-form {
