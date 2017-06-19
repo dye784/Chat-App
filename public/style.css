@@ -77,6 +77,23 @@ body {
 
 .message-content-no-image {
   min-width: 76px;
+  text-align: center;
+  color: #C5C5C5;
+  font-size: 12px;
+  margin-left: .25rem;
+}
+
+.message-username {
+  font-weight: 900;
+}
+
+.message-content-no-image:hover {
+  min-width: 76px;
+  text-align: center;
+  color: #C5C5C5;
+  font-size: 12px;
+  margin-left: .25rem;
+  visibility: inherit;
 }
 
 .message-content-item-text {
@@ -86,10 +103,10 @@ body {
 
 .message-content-container:hover {
   background-color: #F9F9F9;
+  visibility: visible;
 }
 
 .message-content-header {
-  font-weight: 900;
   color: #2C2D30;
   display: flex;
 }

@@ -78,11 +78,11 @@ export class Chat extends Component {
               {!this.isPreviousUser(messages, message, idx) ?
                 <div className="message-content-item-image">
                   <img className="message-user-image" src={message.user.avatar}/>
-                </div> : <div className="message-content-no-image"></div>}
+                </div> : <div className="message-content-no-image">{this.parseDate(message.createdAt)}</div>}
               <div className="message-content-item-text">
                 {!this.isPreviousUser(messages, message, idx) &&
                   <div className="message-content-header">
-                    <div>{message.user.username}</div>
+                    <div className="message-username">{message.user.username}</div>
                     <div className="message-time-stamp">{this.parseDate(message.createdAt)}</div>
                   </div>}
                 {message.type === 'img' && <img src={message.content}/>}
