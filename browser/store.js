@@ -11,7 +11,7 @@ const store = createStore(reducer,
 export default store;
 
 // Connect socket
-export const socket = io('https://localhost:1337/');
+export const socket = io('http://localhost:1337/');
 
 socket.on('connect', () => {
   socket.on('addMessage', (message) => {
