@@ -46,7 +46,7 @@ body {
 .message-time-stamp {
   color: #C5C5C5;
   font-size: 12px;
-  margin-left: .25rem;
+  margin-left: .50rem;
 }
 
 .message-text-area {
@@ -87,15 +87,6 @@ body {
   font-weight: 900;
 }
 
-.message-content-no-image:hover {
-  min-width: 76px;
-  text-align: center;
-  color: #C5C5C5;
-  font-size: 12px;
-  margin-left: .25rem;
-  visibility: inherit;
-}
-
 .message-content-item-text {
   flex-direction: row;
   text-align: left;
@@ -133,7 +124,7 @@ body {
   background: #4D394B;
   color: #AB9BA9;
   flex-basis: 220px;
-  max-width: 260px;
+  max-width: 220px;
 }
 
 .container-sidebar-chatrooms {
