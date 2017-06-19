@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { array, string, func, number } from 'prop-types';
+import moment from 'moment';
 
 import { postNewMessageToServer, addNewMessageForChatroom, addNewMessage, ADD_NEW_MESSAGE, addNewImageForChatroom } from './ChatActionCreators';
 import { getAllMessages, getMessagesChatroomName } from './ChatReducer';
@@ -58,6 +59,10 @@ export class Chat extends Component {
     return idx > 0 && currentMessage.user.username === messages[idx - 1].user.username
   }
 
+  parseDate = (date) => {
+    return moment.utc(date).format('LT');
+  }
+
   render() {
     const { messages, chatroomId, userId, chatroomName } = this.props
     return (
@@ -77,7 +82,8 @@ export class Chat extends Component {
               <div className="message-content-item-text">
                 {!this.isPreviousUser(messages, message, idx) &&
                   <div className="message-content-header">
-                    {message.user.username}
+                    <div>{message.user.username}</div>
+                    <div className="message-time-stamp">{this.parseDate(message.createdAt)}</div>
                   </div>}
                 {message.type === 'img' && <img src={message.content}/>}
                 {message.type === 'message' && <div className="chat-message">{message.content}</div>}
