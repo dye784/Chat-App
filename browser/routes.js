@@ -32,7 +32,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchInitialData() {
     dispatch(fetchLoggedInUser());
     dispatch(fetchAllChatrooms());
-    dispatch(fetchNewMessages());
   },
   fetchAllMessagesForChatroom({ params }) {
     dispatch(fetchAllMessagesForChatroom(params.chatroomId));
