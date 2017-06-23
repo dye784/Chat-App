@@ -20,7 +20,7 @@ export const login = (username, password) => (dispatch) => (
 export const logout = () => (dispatch) => (
   axios.delete('/api/auth/logout')
   .then(() => dispatch(authenticate(null)))
-  .then(() => browserHistory.push('/'))
+  .then(() => browserHistory.push('/chatrooms/1'))
 );
 
 export const fetchLoggedInUser = () => (dispatch) => (
