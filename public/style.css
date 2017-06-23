@@ -119,12 +119,10 @@ body {
 
 .container-sidebar {
   flex-direction: column;
-  padding-right: 4%;
-  padding-left: 1%;
   background: #4D394B;
   color: #AB9BA9;
   flex-basis: 220px;
-  max-width: 220px;
+  max-width: 260px;
 }
 
 .container-sidebar-chatrooms {
