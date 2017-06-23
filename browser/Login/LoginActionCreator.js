@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export const AUTHENTICATED = 'AUTHENTICATED';
 
@@ -19,6 +20,7 @@ export const login = (username, password) => (dispatch) => (
 export const logout = () => (dispatch) => (
   axios.delete('/api/auth/logout')
   .then(() => dispatch(authenticate(null)))
+  .then(() => browserHistory.push('/'))
 );
 
 export const fetchLoggedInUser = () => (dispatch) => (
