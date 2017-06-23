@@ -8,7 +8,7 @@ import { getUser } from '../Login/LoginReducer';
 export const Logout = ({ user, logout }) => (
   <div>
     <h3 className="username-display">{user && user.username}</h3>
-    <button onClick={logout}>Logout</button>
+    <button className="btn-logout" onClick={logout}>Logout</button>
     <hr />
   </div>
 );
