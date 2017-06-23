@@ -55,7 +55,7 @@ You can either sign in with a test user - email: `example@example.com` & passwor
 3. Socket.io tests.
 4. Display new messages for each channel.
 5. Auto scroll to bottom on new message. (Complete)
-6. Put time stamps some place.
+6. Put time stamps some place. (Complete)
 7. User Image. (Complete)
 
 ### Current Concerns
