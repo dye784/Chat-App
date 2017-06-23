@@ -12,7 +12,7 @@ export const Sidebar = ({ chatrooms }) => (
   <div className="container-sidebar">
     <div>
       <Logout />
-      <h3>CHATROOMS</h3>
+      <h3 className="chatroom-title">CHATROOMS</h3>
       <hr />
     </div>
     <div className="container-sidebar-chatrooms">

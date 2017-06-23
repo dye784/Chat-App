@@ -145,6 +145,10 @@ body {
   margin-top: 4%;
 }
 
+.chatroom-title {
+  margin-left: 5%;
+}
+
 /*Sidebar end*/
 
 
@@ -175,8 +179,14 @@ body {
 /* Logout start */
 
 .username-display {
+  margin-left: 6%;
   margin-bottom: 2%;
   color: #fff;
+}
+
+.btn-logout {
+  margin-left: 6%;
+  width: 100px;
 }
 
 /* Logout end */
